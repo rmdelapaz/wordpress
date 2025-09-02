@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress Mastery Tutorial Series - Complete Guide</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .hero {
+            background: linear-gradient(135deg, #0073aa 0%, #21759b 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 40px;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0 0 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin: 0;
+            opacity: 0.9;
+        }
+        .tutorials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+        .tutorial-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #f0f0f0;
+        }
+        .tutorial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-color: #0073aa;
+        }
+        .tutorial-header {
+            padding: 25px 25px 20px 25px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .tutorial-number {
+            background: linear-gradient(135deg, #0073aa, #21759b);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .tutorial-card h2 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 1.4em;
+        }
+        .tutorial-card h2 a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+        .tutorial-card h2 a:hover {
+            color: #0073aa;
+        }
+        .tutorial-description {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        .tutorial-content {
+            padding: 20px 25px;
+        }
+        .tutorial-topics {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0 0;
+        }
+        .tutorial-topics li {
+            padding: 5px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .tutorial-topics li:last-child {
+            border-bottom: none;
+        }
+        .tutorial-topics li::before {
+            content: "✓";
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .tutorial-footer {
+            background: #f9f9f9;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .difficulty {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .difficulty.beginner {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+        .difficulty.intermediate {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+        .difficulty.advanced {
+            background: #ffebee;
+            color: #d32f2f;
+        }
+        .duration {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .progress-section {
+            background: #f9f9f9;
+            padding: 40px;
+            text-align: center;
+        }
+        .progress-title {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .progress-path {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        .progress-step {
+            background: white;
+            border: 3px solid #ddd;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #666;
+            margin: 10px;
+        }
+        .progress-step.completed {
+            background: #4caf50;
+            border-color: #4caf50;
+            color: white;
+        }
+        .stats-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .footer-section {
+            background: #333;
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            .tutorials-grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            .progress-path {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <h1>🚀 WordPress Mastery Tutorial Series</h1>
+            <p>From Beginner to Expert - Complete WordPress Development Course</p>
+        </header>
+
+        <section class="progress-section">
+            <h2 class="progress-title">Your Learning Journey</h2>
+            <div class="mermaid">
+                journey
+                    title WordPress Mastery Path
+                    section Foundation
+                      WordPress Basics: 5: Beginner
+                      Setup &amp; Hosting: 4: Beginner
+                    section Development
+                      Theme Mastery: 4: Intermediate
+                      Plugin Management: 3: Intermediate
+                    section Content &amp; Launch
+                      Content Strategy: 4: Intermediate
+                      Launch &amp; Optimize: 2: Advanced
+            </div>
+        </section>
+
+        <main class="tutorials-grid">
+            <article class="tutorial-card">
+                <div class="tutorial-header">
+                    <div class="tutorial-number">1</div>
+                    <h2><a href="wordpress_intro.html">What is WordPress? - Your Digital Journey Begins</a></h2>
+                    <p class="tutorial-description">Start your WordPress journey with a comprehensive introduction to the world's most popular content management system.</p>
+                </div>
+                <div class="tutorial-content">
+                    <ul class="tutorial-topics">
+                        <li>WordPress.com vs WordPress.org explained</li>
+                        <li>Understanding themes, plugins, and content</li>
+                        <li>WordPress ecosystem and community</li>
+                        <li>Real-world examples and use cases</li>
+                        <li>Setting realistic expectations</li>
+                    </ul>
+                </div>
+                <div class="tutorial-footer">
+                    <span class="difficulty beginner">Beginner</span>
+                    <span class="duration">45 min read</span>
+                </div>
+            </article>
+
+            <article class="tutorial-card">
+                <div class="tutorial-header">
+                    <div class="tutorial-number">2</div>
+                    <h2><a href="wordpress_setup_choice.html">Choosing Your WordPress Path - The Great Decision</a></h2>
+                    <p class="tutorial-description">Make informed decisions about hosting, domains, and development environments that will set you up for long-term success.</p>
+                </div>
+                <div class="tutorial-content">
+                    <ul class="tutorial-topics">
+                        <li>Hosting comparison and recommendations</li>
+                        <li>Domain name selection strategies</li>
+                        <li>Local development environment setup</li>
+                        <li>WordPress installation methods</li>
+                        <li>Development workflow planning</li>
+                    </ul>
+                </div>
+                <div class="tutorial-footer">
+                    <span class="difficulty beginner">Beginner</span>
+                    <span class="duration">60 min read</span>
+                </div>
+            </article>
+
+            <article class="tutorial-card">
+                <div class="tutorial-header">
+                    <div class="tutorial-number">3</div>
+                    <h2><a href="wordpress_themes_guide.html">WordPress Themes - Dressing Your Digital Storefront</a></h2>
+                    <p class="tutorial-description">Master WordPress themes from selection to customization, including child themes and advanced techniques.</p>
+                </div>
+                <div class="tutorial-content">
+                    <ul class="tutorial-topics">
+                        <li>Theme selection and evaluation criteria</li>
+                        <li>WordPress Customizer mastery</li>
+                        <li>Child themes for safe customization</li>
+                        <li>Popular theme frameworks</li>
+                        <li>Performance and troubleshooting</li>
+                    </ul>
+                </div>
+                <div class="tutorial-footer">
+                    <span class="difficulty intermediate">Intermediate</span>
+                    <span class="duration">75 min read</span>
+                </div>
+            </article>
+
+            <article class="tutorial-card">
+                <div class="tutorial-header">
+                    <div class="tutorial-number">4</div>
+                    <h2><a href="wordpress_plugins_mastery.html">WordPress Plugins - Your Website's Power Tools</a></h2>
+                    <p class="tutorial-description">Learn to choose, install, manage, and optimize plugins while avoiding common pitfalls and security issues.</p>
+                </div>
+                <div class="tutorial-content">
+                    <ul class="tutorial-topics">
+                        <li>Essential plugins for every website</li>
+                        <li>Security and performance plugins</li>
+                        <li>Plugin conflicts and troubleshooting</li>
+                        <li>Basic plugin development</li>
+                        <li>Quality assessment and safety</li>
+                    </ul>
+                </div>
+                <div class="tutorial-footer">
+                    <span class="difficulty intermediate">Intermediate</span>
+                    <span class="duration">90 min read</span>
+                </div>
+            </article>
+
+            <article class="tutorial-card">
+                <div class="tutorial-header">
+                    <div class="tutorial-number">5</div>
+                    <h2><a href="wordpress_content_mastery.html">Content Creation & Management - Crafting Digital Stories</a></h2>
+                    <p class="tutorial-description">Master content strategy, creation workflows, SEO optimization, and performance measurement for engaging websites.</p>
+                </div>
+                <div class="tutorial-content">
+                    <ul class="tutorial-topics">
+                        <li>Block Editor (Gutenberg) mastery</li>
+                        <li>Content strategy and planning</li>
+                        <li>SEO optimization techniques</li>
+                        <li>Performance measurement and analytics</li>
+                        <li>Content maintenance and updates</li>
+                    </ul>
+                </div>
+                <div class="tutorial-footer">
+                    <span class="difficulty intermediate">Intermediate</span>
+                    <span class="duration">85 min read</span>
+                </div>
+            </article>
+
+            <article class="tutorial-card">
+                <div class="tutorial-header">
+                    <div class="tutorial-number">6</div>
+                    <h2><a href="wordpress_launch_optimization.html">Launch & Optimization - Going Live Like a Pro</a></h2>
+                    <p class="tutorial-description">Complete your WordPress journey with professional launch procedures, optimization techniques, and long-term success strategies.</p>
+                </div>
+                <div class="tutorial-content">
+                    <ul class="tutorial-topics">
+                        <li>Pre-launch checklist and procedures</li>
+                        <li>Performance optimization and monitoring</li>
+                        <li>Security hardening and maintenance</li>
+                        <li>Post-launch growth strategies</li>
+                        <li>Enterprise scaling considerations</li>
+                    </ul>
+                </div>
+                <div class="tutorial-footer">
+                    <span class="difficulty advanced">Advanced</span>
+                    <span class="duration">95 min read</span>
+                </div>
+            </article>
+        </main>
+
+        <section class="stats-section">
+            <h2>Complete WordPress Education</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div>Comprehensive Lessons</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">400+</div>
+                    <div>Pages of Content</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div>Interactive Diagrams</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div>Code Examples</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="progress-section">
+            <h2 class="progress-title">Learning Path Visualization</h2>
+            <div class="mermaid">
+                graph LR
+                    A[WordPress Intro] --> B[Setup & Hosting]
+                    B --> C[Themes & Design] 
+                    C --> D[Plugins & Functionality]
+                    D --> E[Content Creation]
+                    E --> F[Launch & Optimization]
+                    
+                    A --> A1[Understand WordPress]
+                    B --> B1[Development Environment]
+                    C --> C1[Visual Customization]
+                    D --> D1[Extend Functionality]
+                    E --> E1[Content Strategy]
+                    F --> F1[Professional Launch]
+                    
+                    style A fill:#4caf50,color:#fff
+                    style B fill:#2196f3,color:#fff
+                    style C fill:#ff9800,color:#fff
+                    style D fill:#e91e63,color:#fff
+                    style E fill:#9c27b0,color:#fff
+                    style F fill:#f44336,color:#fff
+            </div>
+        </section>
+
+        <section class="progress-section">
+            <h2 class="progress-title">Tutorial Features</h2>
+            <div class="tutorials-grid" style="margin-top: 30px;">
+                <div class="tutorial-card">
+                    <div class="tutorial-header">
+                        <h3>🎨 Interactive Learning</h3>
+                    </div>
+                    <div class="tutorial-content">
+                        <p>Each tutorial includes interactive diagrams, visual examples, and hands-on exercises to reinforce learning.</p>
+                    </div>
+                </div>
+                
+                <div class="tutorial-card">
+                    <div class="tutorial-header">
+                        <h3>💻 Code Examples</h3>
+                    </div>
+                    <div class="tutorial-content">
+                        <p>Real-world code snippets and examples you can copy, paste, and adapt for your own projects.</p>
+                    </div>
+                </div>
+                
+                <div class="tutorial-card">
+                    <div class="tutorial-header">
+                        <h3>📋 Checklists & Templates</h3>
+                    </div>
+                    <div class="tutorial-content">
+                        <p>Practical checklists, templates, and workflows to guide you through each phase of development.</p>
+                    </div>
+                </div>
+                
+                <div class="tutorial-card">
+                    <div class="tutorial-header">
+                        <h3>🎯 Real-World Focus</h3>
+                    </div>
+                    <div class="tutorial-content">
+                        <p>Every lesson is designed around practical scenarios and real-world applications you'll actually use.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer-section">
+            <h3>🚀 Ready to Start Your WordPress Journey?</h3>
+            <p>Begin with <strong>Lesson 1: WordPress Introduction</strong> and work your way through each tutorial at your own pace. Each lesson builds upon the previous ones while remaining valuable as standalone resources.</p>
+            <p style="margin-top: 20px; opacity: 0.8;">
+                <em>Pro Tip: Keep these tutorials bookmarked for reference as you build real WordPress projects!</em>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress Content Creation & Management - Crafting Digital Stories</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>WordPress Content Creation & Management - Crafting Digital Stories</h1>
+        <p>Transform your ideas into compelling content that captivates audiences and conquers search engines!</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Content is King, But Context is Queen</h2>
+            <p>Imagine you're a master storyteller sitting around a campfire. You have the most amazing stories to tell, but without understanding your audience, choosing the right moment, and delivering with the perfect tone, even the best stories fall flat. WordPress content creation is exactly like this - it's not just about what you say, but how, when, and where you say it.</p>
+            
+            <p>In the digital world, content is your voice, your personality, and your value proposition all rolled into one. WordPress gives you the tools to craft that content beautifully, but the real magic happens when you understand how to use these tools strategically.</p>
+
+            <div class="mermaid">
+                graph TD
+                    A[Content Strategy] --> B[Know Your Audience]
+                    A --> C[Define Your Goals]
+                    A --> D[Choose Content Types]
+                    A --> E[Plan Publishing Schedule]
+                    
+                    B --> B1[Demographics]
+                    B --> B2[Pain Points]
+                    B --> B3[Content Preferences]
+                    B --> B4[Search Behavior]
+                    
+                    C --> C1[Brand Awareness]
+                    C --> C2[Lead Generation]
+                    C --> C3[Customer Education]
+                    C --> C4[Community Building]
+                    
+                    D --> D1[Blog Posts]
+                    D --> D2[Pages]
+                    D --> D3[Media Content]
+                    D --> D4[Interactive Elements]
+                    
+                    style A fill:#e91e63,color:#fff
+                    style B fill:#2196f3,color:#fff
+                    style C fill:#4caf50,color:#fff
+                    style D fill:#ff9800,color:#fff
+            </div>
+        </section>
+
+        <section>
+            <h2>Posts vs Pages - Understanding the Foundation</h2>
+            
+            <h3>The Newspaper vs Business Card Analogy</h3>
+            <p>WordPress has two main content types: posts and pages. Think of posts like newspaper articles - they're timely, part of an ongoing conversation, organized chronologically, and people expect them regularly. Pages are like business cards or brochures - they contain essential information that doesn't change often and represents your core identity.</p>
+
+            <canvas id="postsVsPagesCanvas" width="700" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const postsPageCanvas = document.getElementById('postsVsPagesCanvas');
+                const postsPageCtx = postsPageCanvas.getContext('2d');
+                
+                postsPageCtx.font = 'bold 18px Arial';
+                postsPageCtx.fillStyle = '#333';
+                postsPageCtx.fillText('Posts vs Pages: Key Differences', 50, 30);
+                
+                // Posts section
+                postsPageCtx.fillStyle = '#2196f3';
+                postsPageCtx.fillRect(50, 60, 300, 300);
+                
+                postsPageCtx.fillStyle = '#fff';
+                postsPageCtx.font = 'bold 16px Arial';
+                postsPageCtx.fillText('POSTS', 60, 85);
+                postsPageCtx.fillText('(Dynamic Content)', 60, 105);
+                
+                postsPageCtx.font = '14px Arial';
+                const postFeatures = [
+                    'Characteristics:',
+                    '• Time-sensitive content',
+                    '• Organized chronologically', 
+                    '• Have categories and tags',
+                    '• Appear in RSS feeds',
+                    '• Enable comments by default',
+                    '• Shown on blog homepage',
+                    '',
+                    'Best for:',
+                    '• Blog articles',
+                    '• News updates',
+                    '• Company announcements',
+                    '• Tutorials and guides',
+                    '• Opinion pieces',
+                    '• Product updates'
+                ];
+                
+                for(let i = 0; i < postFeatures.length; i++) {
+                    if(postFeatures[i].includes('Characteristics:') || postFeatures[i].includes('Best for:')) {
+                        postsPageCtx.fillStyle = '#fff';
+                        postsPageCtx.font = 'bold 13px Arial';
+                    } else {
+                        postsPageCtx.fillStyle = '#fff';
+                        postsPageCtx.font = '12px Arial';
+                    }
+                    postsPageCtx.fillText(postFeatures[i], 70, 130 + (i * 16));
+                }
+                
+                // Pages section  
+                postsPageCtx.fillStyle = '#4caf50';
+                postsPageCtx.fillRect(370, 60, 300, 300);
+                
+                postsPageCtx.fillStyle = '#fff';
+                postsPageCtx.font = 'bold 16px Arial';
+                postsPageCtx.fillText('PAGES', 380, 85);
+                postsPageCtx.fillText('(Static Content)', 380, 105);
+                
+                postsPageCtx.font = '14px Arial';
+                const pageFeatures = [
+                    'Characteristics:',
+                    '• Timeless information',
+                    '• Hierarchical structure',
+                    '• No categories or tags',
+                    '• Not in RSS feeds',
+                    '• Comments usually disabled',
+                    '• Accessed via navigation',
+                    '',
+                    'Best for:',
+                    '• About page',
+                    '• Contact information',
+                    '• Services overview',
+                    '• Privacy policy',
+                    '• Landing pages',
+                    '• Portfolio showcase'
+                ];
+                
+                for(let i = 0; i < pageFeatures.length; i++) {
+                    if(pageFeatures[i].includes('Characteristics:') || pageFeatures[i].includes('Best for:')) {
+                        postsPageCtx.fillStyle = '#fff';
+                        postsPageCtx.font = 'bold 13px Arial';
+                    } else {
+                        postsPageCtx.fillStyle = '#fff';
+                        postsPageCtx.font = '12px Arial';
+                    }
+                    postsPageCtx.fillText(pageFeatures[i], 390, 130 + (i * 16));
+                }
+            </script>
+
+            <h3>When to Choose Posts vs Pages</h3>
+            <div class="mermaid">
+                flowchart TD
+                    A[Creating New Content] --> B{Will this content become outdated?}
+                    B -->|Yes, it's timely| C[Use a POST]
+                    B -->|No, it's evergreen| D{Is it essential site information?}
+                    
+                    D -->|Yes| E[Use a PAGE]
+                    D -->|No| F{Will you write more on this topic?}
+                    
+                    F -->|Yes| G[Use a POST with categories]
+                    F -->|No| H[Could be either - consider your site structure]
+                    
+                    C --> C1[Blog articles, news, updates]
+                    E --> E1[About, Contact, Services]
+                    G --> G1[Tutorial series, industry insights]
+                    H --> H1[Testimonials, FAQ, Portfolio]
+                    
+                    style C fill:#2196f3,color:#fff
+                    style E fill:#4caf50,color:#fff
+                    style G fill:#ff9800,color:#fff
+                    style H fill:#9c27b0,color:#fff
+            </div>
+        </section>
+
+        <section>
+            <h2>Mastering the WordPress Block Editor (Gutenberg)</h2>
+            
+            <h3>From Word Processor to Visual Composer</h3>
+            <p>The WordPress block editor revolutionized content creation by changing from a traditional word processor approach to a visual building blocks system. Think of it like switching from writing with a typewriter to arranging content with LEGO blocks - each element is a separate, customizable piece that you can move, style, and combine in countless ways.</p>
+
+            <canvas id="gutenbergEvolutionCanvas" width="650" height="350" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const gutenbergCanvas = document.getElementById('gutenbergEvolutionCanvas');
+                const gutenbergCtx = gutenbergCanvas.getContext('2d');
+                
+                gutenbergCtx.font = 'bold 16px Arial';
+                gutenbergCtx.fillStyle = '#0073aa';
+                gutenbergCtx.fillText('WordPress Editor Evolution', 50, 30);
+                
+                // Classic Editor
+                gutenbergCtx.fillStyle = '#666';
+                gutenbergCtx.fillRect(50, 60, 250, 200);
+                gutenbergCtx.fillStyle = '#fff';
+                gutenbergCtx.font = 'bold 14px Arial';
+                gutenbergCtx.fillText('Classic Editor (Old Way)', 60, 85);
+                
+                gutenbergCtx.font = '12px Arial';
+                const classicFeatures = [
+                    '• One big text area',
+                    '• Limited formatting options', 
+                    '• HTML knowledge helpful',
+                    '• Media insertion complex',
+                    '• Layout options minimal',
+                    '• Shortcodes for functionality',
+                    '• Preview to see results',
+                    '• Fixed content structure'
+                ];
+                
+                for(let i = 0; i < classicFeatures.length; i++) {
+                    gutenbergCtx.fillText(classicFeatures[i], 70, 110 + (i * 18));
+                }
+                
+                // Arrow
+                gutenbergCtx.fillStyle = '#ff9800';
+                gutenbergCtx.font = '30px Arial';
+                gutenbergCtx.fillText('→', 320, 180);
+                
+                // Block Editor
+                gutenbergCtx.fillStyle = '#0073aa';
+                gutenbergCtx.fillRect(370, 60, 250, 200);
+                gutenbergCtx.fillStyle = '#fff';
+                gutenbergCtx.font = 'bold 14px Arial';
+                gutenbergCtx.fillText('Block Editor (Gutenberg)', 380, 85);
+                
+                gutenbergCtx.font = '12px Arial';
+                const gutenbergFeatures = [
+                    '• Individual content blocks',
+                    '• Rich formatting options',
+                    '• Visual, intuitive interface',
+                    '• Drag & drop media',
+                    '• Flexible layout control',
+                    '• Built-in functionality blocks',
+                    '• Live preview while editing',
+                    '• Responsive design tools'
+                ];
+                
+                for(let i = 0; i < gutenbergFeatures.length; i++) {
+                    gutenbergCtx.fillText(gutenbergFeatures[i], 390, 110 + (i * 18));
+                }
+                
+                // Bottom comparison
+                gutenbergCtx.fillStyle = '#333';
+                gutenbergCtx.font = '14px Arial';
+                gutenbergCtx.fillText('Result: More complex, less flexible', 100, 290);
+                gutenbergCtx.fillText('Result: Easier to use, more powerful', 420, 290);
+            </script>
+
+            <h3>Essential Blocks Every Content Creator Should Know</h3>
+            <div class="mermaid">
+                mindmap
+                  root((WordPress Blocks))
+                    Text Blocks
+                      Paragraph
+                      Heading
+                      List
+                      Quote
+                      Code
+                      Preformatted
+                    Media Blocks
+                      Image
+                      Gallery
+                      Video
+                      Audio
+                      File
+                      Cover
+                    Design Blocks
+                      Columns
+                      Group
+                      Spacer
+                      Separator
+                      Buttons
+                      Social Icons
+                    Widget Blocks
+                      Archives
+                      Calendar
+                      Categories
+                      Latest Posts
+                      Tag Cloud
+                      Search
+                    Embed Blocks
+                      YouTube
+                      Twitter
+                      Instagram
+                      Facebook
+                      SoundCloud
+                      Spotify
+            </div>
+
+            <h3>Block Editor Best Practices</h3>
+            <pre><code>Gutenberg Efficiency Tips:
+
+Keyboard Shortcuts:
+• / (slash) - Quick block insertion
+• Ctrl+A - Select all blocks
+• Ctrl+Z - Undo last action
+• Ctrl+Shift+Z - Redo
+• Ctrl+Alt+T - Insert block before
+• Ctrl+Alt+Y - Insert block after
+
+Block Management:
+• Use the Block Navigator (Outline view)
+• Group related blocks together
+• Use spacer blocks for precise spacing
+• Duplicate blocks instead of recreating
+• Save custom block patterns for reuse
+
+Content Structure:
+• Start with H1 for main title
+• Use H2-H6 for logical hierarchy
+• Keep paragraphs short (2-3 sentences)
+• Use lists for scannable information
+• Add alt text to all images
+• Include descriptive link text</code></pre>
+        </section>
+
+        <section>
+            <h2>Content Organization and Taxonomy</h2>
+            
+            <h3>Categories vs Tags - The Filing System</h3>
+            <p>Think of categories as the filing cabinets in your office, and tags as the sticky notes you put on documents. Categories are broad, hierarchical groupings (like "Marketing" with subcategories "Social Media" and "Email Marketing"), while tags are specific keywords that describe the content (like "Facebook ads," "email automation," or "conversion rates").</p>
+
+            <canvas id="taxonomyCanvas" width="650" height="450" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const taxonomyCanvas = document.getElementById('taxonomyCanvas');
+                const taxonomyCtx = taxonomyCanvas.getContext('2d');
+                
+                taxonomyCtx.font = 'bold 16px Arial';
+                taxonomyCtx.fillStyle = '#333';
+                taxonomyCtx.fillText('Categories vs Tags: Content Organization', 50, 30);
+                
+                // Categories section
+                taxonomyCtx.fillStyle = '#4caf50';
+                taxonomyCtx.fillRect(50, 60, 280, 350);
+                taxonomyCtx.fillStyle = '#fff';
+                taxonomyCtx.font = 'bold 16px Arial';
+                taxonomyCtx.fillText('CATEGORIES', 60, 85);
+                taxonomyCtx.fillText('(Filing Cabinets)', 60, 105);
+                
+                // Category hierarchy visualization
+                taxonomyCtx.fillStyle = '#2e7d32';
+                taxonomyCtx.fillRect(70, 130, 200, 30);
+                taxonomyCtx.fillStyle = '#fff';
+                taxonomyCtx.font = '12px Arial';
+                taxonomyCtx.fillText('Technology', 75, 150);
+                
+                // Subcategories
+                taxonomyCtx.fillStyle = '#66bb6a';
+                taxonomyCtx.fillRect(90, 170, 150, 20);
+                taxonomyCtx.fillStyle = '#fff';
+                taxonomyCtx.fillText('Web Development', 95, 183);
+                
+                taxonomyCtx.fillRect(90, 195, 150, 20);
+                taxonomyCtx.fillText('Digital Marketing', 95, 208);
+                
+                // Sub-subcategories
+                taxonomyCtx.fillStyle = '#a5d6a7';
+                taxonomyCtx.fillRect(110, 220, 100, 15);
+                taxonomyCtx.fillStyle = '#333';
+                taxonomyCtx.fillText('WordPress', 115, 230);
+                
+                taxonomyCtx.fillRect(110, 240, 100, 15);
+                taxonomyCtx.fillText('React', 115, 250);
+                
+                // Category guidelines
+                taxonomyCtx.fillStyle = '#fff';
+                taxonomyCtx.font = 'bold 12px Arial';
+                taxonomyCtx.fillText('Best Practices:', 70, 280);
+                taxonomyCtx.font = '11px Arial';
+                const categoryTips = [
+                    '• 5-10 main categories max',
+                    '• Use broad, evergreen topics',
+                    '• Create logical hierarchy',
+                    '• Each post in 1-2 categories',
+                    '• Think like your users navigate',
+                    '• Use for main navigation'
+                ];
+                
+                for(let i = 0; i < categoryTips.length; i++) {
+                    taxonomyCtx.fillText(categoryTips[i], 80, 300 + (i * 15));
+                }
+                
+                // Tags section
+                taxonomyCtx.fillStyle = '#ff9800';
+                taxonomyCtx.fillRect(350, 60, 280, 350);
+                taxonomyCtx.fillStyle = '#fff';
+                taxonomyCtx.font = 'bold 16px Arial';
+                taxonomyCtx.fillText('TAGS', 360, 85);
+                taxonomyCtx.fillText('(Sticky Notes)', 360, 105);
+                
+                // Tag cloud visualization
+                const tagWords = [
+                    {word: 'WordPress', size: 16, x: 370, y: 140},
+                    {word: 'SEO', size: 14, x: 450, y: 135},
+                    {word: 'PHP', size: 12, x: 500, y: 150},
+                    {word: 'JavaScript', size: 15, x: 380, y: 160},
+                    {word: 'CSS', size: 13, x: 480, y: 170},
+                    {word: 'HTML', size: 12, x: 540, y: 145},
+                    {word: 'Responsive', size: 14, x: 360, y: 180},
+                    {word: 'Mobile', size: 13, x: 460, y: 190},
+                    {word: 'Performance', size: 15, x: 370, y: 200},
+                    {word: 'Security', size: 14, x: 500, y: 210},
+                    {word: 'Plugins', size: 12, x: 420, y: 220},
+                    {word: 'Themes', size: 13, x: 380, y: 240}
+                ];
+                
+                for(let tag of tagWords) {
+                    taxonomyCtx.font = `${tag.size}px Arial`;
+                    taxonomyCtx.fillStyle = '#fff';
+                    taxonomyCtx.fillText(tag.word, tag.x, tag.y);
+                }
+                
+                // Tag guidelines
+                taxonomyCtx.fillStyle = '#fff';
+                taxonomyCtx.font = 'bold 12px Arial';
+                taxonomyCtx.fillText('Best Practices:', 370, 280);
+                taxonomyCtx.font = '11px Arial';
+                const tagTips = [
+                    '• Use specific, descriptive terms',
+                    '• 5-15 tags per post',
+                    '• Think like users search',
+                    '• No hierarchy needed',
+                    '• Help with SEO and discovery',
+                    '• Can repeat across posts'
+                ];
+                
+                for(let i = 0; i < tagTips.length; i++) {
+                    taxonomyCtx.fillText(tagTips[i], 380, 300 + (i * 15));
+                }
+            </script>
+
+            <h3>Custom Post Types - Beyond Posts and Pages</h3>
+            <p>Custom post types are like creating new sections in a magazine. While a regular magazine has articles and advertisements, you might want to add sections for recipes, interviews, or product reviews. Each section has its own format and purpose.</p>
+
+            <div class="mermaid">
+                graph LR
+                    A[Custom Post Types] --> B[Portfolio Items]
+                    A --> C[Products]
+                    A --> D[Testimonials]
+                    A --> E[Events]
+                    A --> F[Team Members]
+                    A --> G[FAQ Items]
+                    
+                    B --> B1[Image Gallery]
+                    B --> B2[Project Details]
+                    B --> B3[Client Info]
+                    
+                    C --> C1[Price]
+                    C --> C2[Specifications]
+                    C --> C3[Reviews]
+                    
+                    D --> D1[Client Name]
+                    D --> D2[Rating]
+                    D --> D3[Company]
+                    
+                    E --> E1[Date/Time]
+                    E --> E2[Location]
+                    E --> E3[Ticket Info]
+                    
+                    style A fill:#e91e63,color:#fff
+                    style B fill:#2196f3,color:#fff
+                    style C fill:#4caf50,color:#fff
+                    style D fill:#ff9800,color:#fff
+                    style E fill:#9c27b0,color:#fff
+            </div>
+        </section>
+
+        <section>
+            <h2>Content Creation Workflow</h2>
+            
+            <h3>From Idea to Published Post - The Content Assembly Line</h3>
+            <p>Great content doesn't happen by accident. It follows a systematic process, like a chef preparing a gourmet meal. You need the right ingredients (research), proper preparation (outline), skillful execution (writing), and beautiful presentation (formatting and publishing).</p>
+
+            <div class="mermaid">
+                journey
+                    title Content Creation Journey
+                    section Ideation &amp; Research
+                      Brainstorm Topics: 5: You
+                      Keyword Research: 4: You
+                      Competitor Analysis: 3: You
+                      Audience Validation: 4: You
+                    section Planning &amp; Structure
+                      Create Outline: 5: You
+                      Gather Resources: 4: You
+                      Plan Media Elements: 4: You
+                      Set Publishing Goals: 4: You
+                    section Content Creation
+                      Write First Draft: 3: You
+                      Add Media Elements: 4: You
+                      Format with Blocks: 4: You
+                      Internal Linking: 3: You
+                    section Optimization &amp; Review
+                      SEO Optimization: 3: You
+                      Proofreading: 4: You
+                      Final Review: 4: You
+                      Schedule/Publish: 5: You
+            </div>
+
+            <h3>The Content Brief Template</h3>
+            <pre><code>Content Brief Template:
+
+Title: [Working title for the content]
+Target Audience: [Who is this for?]
+Primary Goal: [What should this content achieve?]
+Target Keywords: [Main SEO keywords to include]
+Content Type: [Blog post, guide, listicle, etc.]
+Word Count: [Target length]
+Tone: [Professional, casual, authoritative, etc.]
+
+Outline:
+I. Introduction Hook
+   - Problem or question
+   - Why it matters
+   - What you'll cover
+
+II. Main Content Sections
+   - Section 1: [Key point with supporting details]
+   - Section 2: [Key point with supporting details]
+   - Section 3: [Key point with supporting details]
+
+III. Conclusion
+   - Summary of key points
+   - Call to action
+   - Next steps for reader
+
+Research Sources:
+- [List relevant sources, statistics, quotes]
+
+Media Elements:
+- Featured image concept
+- In-content images/screenshots
+- Infographics or charts needed
+- Video/audio elements
+
+SEO Checklist:
+□ Target keyword in title
+□ Meta description written
+□ Alt text for images
+□ Internal links planned
+□ External links to authority sites</code></pre>
+        </section>
+
+        <section>
+            <h2>Advanced Content Formatting and Visual Appeal</h2>
+            
+            <h3>Making Content Scannable and Engaging</h3>
+            <p>Online readers don't read - they scan. They're like speed-readers at a buffet, quickly surveying options before committing. Your content needs to accommodate this behavior with clear headings, bullet points, short paragraphs, and visual breaks that guide the eye and make information easy to digest.</p>
+
+            <canvas id="scannabilityCanvas" width="700" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const scannabilityCanvas = document.getElementById('scannabilityCanvas');
+                const scannabilityCtx = scannabilityCanvas.getContext('2d');
+                
+                scannabilityCtx.font = 'bold 16px Arial';
+                scannabilityCtx.fillStyle = '#333';
+                scannabilityCtx.fillText('Content Scannability: Good vs Poor Examples', 50, 30);
+                
+                // Poor example
+                scannabilityCtx.fillStyle = '#ffebee';
+                scannabilityCtx.fillRect(50, 60, 300, 300);
+                scannabilityCtx.strokeStyle = '#f44336';
+                scannabilityCtx.strokeRect(50, 60, 300, 300);
+                
+                scannabilityCtx.fillStyle = '#d32f2f';
+                scannabilityCtx.font = 'bold 14px Arial';
+                scannabilityCtx.fillText('❌ Poor Scannability', 60, 85);
+                
+                // Simulate hard-to-scan text
+                scannabilityCtx.fillStyle = '#666';
+                scannabilityCtx.font = '10px Arial';
+                for(let i = 0; i < 25; i++) {
+                    const text = 'Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod';
+                    scannabilityCtx.fillText(text.substring(0, 45), 60, 110 + (i * 8));
+                }
+                
+                scannabilityCtx.fillStyle = '#d32f2f';
+                scannabilityCtx.font = '11px Arial';
+                scannabilityCtx.fillText('• No headings or breaks', 60, 320);
+                scannabilityCtx.fillText('• Wall of text', 60, 335);
+                scannabilityCtx.fillText('• No visual hierarchy', 60, 350);
+                
+                // Good example
+                scannabilityCtx.fillStyle = '#e8f5e8';
+                scannabilityCtx.fillRect(370, 60, 300, 300);
+                scannabilityCtx.strokeStyle = '#4caf50';
+                scannabilityCtx.strokeRect(370, 60, 300, 300);
+                
+                scannabilityCtx.fillStyle = '#2e7d32';
+                scannabilityCtx.font = 'bold 14px Arial';
+                scannabilityCtx.fillText('✅ Good Scannability', 380, 85);
+                
+                // Simulate well-formatted content
+                scannabilityCtx.fillStyle = '#1976d2';
+                scannabilityCtx.font = 'bold 12px Arial';
+                scannabilityCtx.fillText('Key Benefits of WordPress', 380, 110);
+                
+                scannabilityCtx.fillStyle = '#666';
+                scannabilityCtx.font = '10px Arial';
+                scannabilityCtx.fillText('WordPress offers several advantages for website', 380, 125);
+                scannabilityCtx.fillText('owners and content creators:', 380, 135);
+                
+                scannabilityCtx.fillStyle = '#333';
+                scannabilityCtx.font = '10px Arial';
+                scannabilityCtx.fillText('• Easy content management', 390, 155);
+                scannabilityCtx.fillText('• Thousands of themes available', 390, 170);
+                scannabilityCtx.fillText('• Extensive plugin ecosystem', 390, 185);
+                
+                scannabilityCtx.fillStyle = '#1976d2';
+                scannabilityCtx.font = 'bold 12px Arial';
+                scannabilityCtx.fillText('Getting Started Guide', 380, 210);
+                
+                scannabilityCtx.fillStyle = '#666';
+                scannabilityCtx.font = '10px Arial';
+                scannabilityCtx.fillText('Follow these steps to launch your site:', 380, 225);
+                
+                scannabilityCtx.fillStyle = '#333';
+                scannabilityCtx.fillText('1. Choose hosting provider', 390, 245);
+                scannabilityCtx.fillText('2. Install WordPress', 390, 260);
+                scannabilityCtx.fillText('3. Select and customize theme', 390, 275);
+                
+                scannabilityCtx.fillStyle = '#2e7d32';
+                scannabilityCtx.font = '11px Arial';
+                scannabilityCtx.fillText('• Clear headings', 380, 320);
+                scannabilityCtx.fillText('• Short paragraphs', 380, 335);
+                scannabilityCtx.fillText('• Bullet points & lists', 380, 350);
+            </script>
+
+            <h3>The Psychology of Visual Content</h3>
+            <p>Humans are visual creatures - we process images 60,000 times faster than text. Using visuals strategically in your content is like adding illustrations to a children's book - it makes the information more engaging, memorable, and easier to understand.</p>
+
+            <div class="mermaid">
+                graph TD
+                    A[Visual Content Strategy] --> B[Images]
+                    A --> C[Infographics]
+                    A --> D[Videos]
+                    A --> E[Interactive Elements]
+                    
+                    B --> B1[Featured Images]
+                    B --> B2[In-content Photos]
+                    B --> B3[Screenshots]
+                    B --> B4[Custom Graphics]
+                    
+                    C --> C1[Process Flows]
+                    C --> C2[Statistics]
+                    C --> C3[Comparisons]
+                    C --> C4[Timelines]
+                    
+                    D --> D1[Tutorials]
+                    D --> D2[Product Demos]
+                    D --> D3[Behind-the-scenes]
+                    D --> D4[Testimonials]
+                    
+                    E --> E1[Polls & Surveys]
+                    E --> E2[Calculators]
+                    E --> E3[Quizzes]
+                    E --> E4[Interactive Maps]
+                    
+                    style A fill:#e91e63,color:#fff
+                    style B fill:#4caf50,color:#fff
+                    style C fill:#ff9800,color:#fff
+                    style D fill:#2196f3,color:#fff
+                    style E fill:#9c27b0,color:#fff
+            </div>
+        </section>
+
+        <section>
+            <h2>SEO-Optimized Content Creation</h2>
+            
+            <h3>Writing for Humans and Search Engines</h3>
+            <p>SEO writing is like being a translator between humans and robots. You need to create content that engages human readers while also speaking the language that search engines understand. The best SEO content doesn't feel "SEO-optimized" to readers - it feels natural and helpful.</p>
+
+            <canvas id="seoContentCanvas" width="650" height="450" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const seoCanvas = document.getElementById('seoContentCanvas');
+                const seoCtx = seoCanvas.getContext('2d');
+                
+                seoCtx.font = 'bold 16px Arial';
+                seoCtx.fillStyle = '#388e3c';
+                seoCtx.fillText('SEO Content Optimization Strategy', 50, 30);
+                
+                // Content optimization layers
+                const layers2 = [
+                    {
+                        name: 'Keyword Research & Strategy',
+                        color: '#f44336',
+                        items: [
+                            'Primary keyword selection',
+                            'Long-tail keyword opportunities',
+                            'Search intent analysis',
+                            'Competitor keyword gaps'
+                        ]
+                    },
+                    {
+                        name: 'On-Page Optimization',
+                        color: '#ff9800',
+                        items: [
+                            'Title tag optimization',
+                            'Meta description crafting',
+                            'Header structure (H1-H6)',
+                            'Image alt text and file names'
+                        ]
+                    },
+                    {
+                        name: 'Content Structure & Quality',
+                        color: '#4caf50',
+                        items: [
+                            'Comprehensive topic coverage',
+                            'Natural keyword integration',
+                            'Internal linking strategy',
+                            'External authority links'
+                        ]
+                    },
+                    {
+                        name: 'Technical SEO Elements',
+                        color: '#2196f3',
+                        items: [
+                            'Schema markup implementation',
+                            'Page loading speed optimization',
+                            'Mobile responsiveness',
+                            'URL structure and breadcrumbs'
+                        ]
+                    }
+                ];
+                
+                for(let i = 0; i < layers2.length; i++) {
+                    const y = 60 + (i * 90);
+                    const layer = layers2[i];
+                    
+                    // Layer header
+                    seoCtx.fillStyle = layer.color;
+                    seoCtx.fillRect(50, y, 550, 25);
+                    seoCtx.fillStyle = '#fff';
+                    seoCtx.font = 'bold 13px Arial';
+                    seoCtx.fillText(layer.name, 60, y + 17);
+                    
+                    // Layer content
+                    seoCtx.fillStyle = '#f9f9f9';
+                    seoCtx.fillRect(50, y + 25, 550, 55);
+                    seoCtx.strokeStyle = layer.color;
+                    seoCtx.lineWidth = 2;
+                    seoCtx.strokeRect(50, y, 550, 80);
+                    
+                    // Items in two columns
+                    seoCtx.fillStyle = '#333';
+                    seoCtx.font = '11px Arial';
+                    for(let j = 0; j < layer.items.length; j++) {
+                        const x = j < 2 ? 70 : 320;
+                        const itemY = y + 45 + ((j % 2) * 18);
+                        seoCtx.fillText('• ' + layer.items[j], x, itemY);
+                    }
+                }
+            </script>
+            </canvas>
+
+            <h3>The SEO Content Checklist</h3>
+            <pre><code>Pre-Publishing SEO Checklist:
+
+Title Optimization:
+□ Primary keyword in title (preferably at beginning)
+□ Title under 60 characters
+□ Compelling and click-worthy
+□ Unique across your site
+
+Content Structure:
+□ Only one H1 tag (usually the title)
+□ Logical heading hierarchy (H2, H3, etc.)
+□ Primary keyword in first paragraph
+□ Keywords naturally integrated throughout
+□ Content answers the search query completely
+
+Technical Elements:
+□ Meta description written (150-160 characters)
+□ Image alt text includes relevant keywords
+□ Internal links to related content (3-5 per post)
+□ External links to authority sources (2-3 per post)
+□ URL is short and keyword-friendly
+
+Content Quality:
+□ Minimum 300 words (longer for competitive topics)
+□ Original, valuable content
+□ Proper grammar and spelling
+□ Mobile-friendly formatting
+□ Fast loading images (compressed)
+
+User Experience:
+□ Clear call-to-action
+□ Easy to read and scan
+□ Engaging introduction
+□ Satisfying conclusion
+□ Social sharing buttons available</code></pre>
+        </section>
+
+        <section>
+            <h2>Content Calendar and Publishing Strategy</h2>
+            
+            <h3>Consistency Beats Perfection</h3>
+            <p>Publishing content consistently is like going to the gym - it's better to work out three times a week for a year than to have an intense month followed by six months of nothing. A content calendar keeps you accountable and helps you maintain the steady presence that builds audience trust and search engine authority.</p>
+
+            <div class="mermaid">
+                gantt
+                    title Monthly Content Calendar Example
+                    dateFormat  YYYY-MM-DD
+                    section Blog Posts
+                    WordPress Tutorial     :done,    tutorial1, 2024-03-01, 2024-03-03
+                    SEO Guide             :done,    seo1,      2024-03-08, 2024-03-10
+                    Plugin Review         :active,  plugin1,   2024-03-15, 2024-03-17
+                    Industry News         :         news1,     2024-03-22, 2024-03-24
+                    Case Study            :         case1,     2024-03-29, 2024-03-31
+                    
+                    section Social Media
+                    Post Promotion        :done,    social1,   2024-03-01, 2024-03-31
+                    Behind-the-scenes     :done,    social2,   2024-03-01, 2024-03-31
+                    User-generated Content :active, social3,   2024-03-01, 2024-03-31
+                    
+                    section Email Newsletter
+                    Weekly Roundup        :done,    email1,    2024-03-07, 2024-03-07
+                    Weekly Roundup        :done,    email2,    2024-03-14, 2024-03-14
+                    Weekly Roundup        :active,  email3,    2024-03-21, 2024-03-21
+                    Weekly Roundup        :         email4,    2024-03-28, 2024-03-28
+            </div>
+
+            <h3>Content Distribution Strategy</h3>
+            <p>Creating great content is only half the battle - distribution is the other half. It's like cooking an amazing meal but never inviting anyone to dinner. Your content needs to reach the right people through the right channels at the right time.</p>
+
+            <canvas id="distributionCanvas" width="700" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const distributionCanvas = document.getElementById('distributionCanvas');
+                const distributionCtx = distributionCanvas.getContext('2d');
+                
+                distributionCtx.font = 'bold 16px Arial';
+                distributionCtx.fillStyle = '#1976d2';
+                distributionCtx.fillText('Content Distribution Channels', 50, 30);
+                
+                // Central content hub
+                distributionCtx.fillStyle = '#e91e63';
+                distributionCtx.beginPath();
+                distributionCtx.arc(350, 200, 60, 0, 2 * Math.PI);
+                distributionCtx.fill();
+                
+                distributionCtx.fillStyle = '#fff';
+                distributionCtx.font = 'bold 14px Arial';
+                distributionCtx.textAlign = 'center';
+                distributionCtx.fillText('Your', 350, 195);
+                distributionCtx.fillText('Content', 350, 210);
+                
+                // Distribution channels
+                const channels = [
+                    {name: 'SEO/Google', angle: 0, color: '#4caf50', reach: '70%'},
+                    {name: 'Social Media', angle: 60, color: '#2196f3', reach: '60%'},
+                    {name: 'Email List', angle: 120, color: '#ff9800', reach: '40%'},
+                    {name: 'Direct Traffic', angle: 180, color: '#9c27b0', reach: '30%'},
+                    {name: 'Referrals', angle: 240, color: '#f44336', reach: '25%'},
+                    {name: 'Paid Ads', angle: 300, color: '#795548', reach: '20%'}
+                ];
+                
+                for(let channel of channels) {
+                    const angle = (channel.angle * Math.PI) / 180;
+                    const x = 350 + Math.cos(angle) * 150;
+                    const y = 200 + Math.sin(angle) * 150;
+                    
+                    // Channel circle
+                    distributionCtx.fillStyle = channel.color;
+                    distributionCtx.beginPath();
+                    distributionCtx.arc(x, y, 40, 0, 2 * Math.PI);
+                    distributionCtx.fill();
+                    
+                    // Connection line
+                    distributionCtx.strokeStyle = '#ddd';
+                    distributionCtx.lineWidth = 2;
+                    distributionCtx.beginPath();
+                    distributionCtx.moveTo(350 + Math.cos(angle) * 60, 200 + Math.sin(angle) * 60);
+                    distributionCtx.lineTo(350 + Math.cos(angle) * 110, 200 + Math.sin(angle) * 110);
+                    distributionCtx.stroke();
+                    
+                    // Channel text
+                    distributionCtx.fillStyle = '#fff';
+                    distributionCtx.font = '10px Arial';
+                    distributionCtx.textAlign = 'center';
+                    distributionCtx.fillText(channel.name, x, y - 3);
+                    distributionCtx.fillText(channel.reach, x, y + 8);
+                }
+                
+                // Reset text alignment
+                distributionCtx.textAlign = 'left';
+                
+                // Legend
+                distributionCtx.fillStyle = '#333';
+                distributionCtx.font = '12px Arial';
+                distributionCtx.fillText('Typical audience reach percentages', 50, 370);
+            </script>
+        </section>
+
+        <section>
+            <h2>Content Performance Measurement</h2>
+            
+            <h3>What Gets Measured Gets Improved</h3>
+            <p>Measuring content performance is like checking your car's dashboard while driving. You need to know your speed (traffic), fuel level (engagement), and engine health (conversions) to make informed decisions about your journey. WordPress and analytics tools provide all these insights.</p>
+
+            <h3>Key Content Metrics to Track</h3>
+            
+            <canvas id="metricsCanvas" width="650" height="450" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const metricsCanvas = document.getElementById('metricsCanvas');
+                const metricsCtx = metricsCanvas.getContext('2d');
+                
+                metricsCtx.font = 'bold 16px Arial';
+                metricsCtx.fillStyle = '#333';
+                metricsCtx.fillText('Content Performance Metrics Dashboard', 50, 30);
+                
+                // Metrics categories
+                const metricCategories = [
+                    {
+                        category: 'Traffic Metrics',
+                        color: '#2196f3',
+                        metrics: [
+                            'Page views',
+                            'Unique visitors',
+                            'Organic search traffic',
+                            'Referral traffic',
+                            'Direct traffic'
+                        ]
+                    },
+                    {
+                        category: 'Engagement Metrics',
+                        color: '#4caf50',
+                        metrics: [
+                            'Time on page',
+                            'Bounce rate',
+                            'Pages per session',
+                            'Comments/shares',
+                            'Return visitors'
+                        ]
+                    },
+                    {
+                        category: 'Conversion Metrics',
+                        color: '#ff9800',
+                        metrics: [
+                            'Email signups',
+                            'Download clicks',
+                            'Contact form submissions',
+                            'Product purchases',
+                            'Goal completions'
+                        ]
+                    },
+                    {
+                        category: 'SEO Performance',
+                        color: '#e91e63',
+                        metrics: [
+                            'Keyword rankings',
+                            'Click-through rate',
+                            'Featured snippets',
+                            'Backlink acquisition',
+                            'Search impressions'
+                        ]
+                    }
+                ];
+                
+                // Create 2x2 grid
+                for(let i = 0; i < metricCategories.length; i++) {
+                    const x = 50 + (i % 2) * 300;
+                    const y = 60 + Math.floor(i / 2) * 180;
+                    const category = metricCategories[i];
+                    
+                    // Category header
+                    metricsCtx.fillStyle = category.color;
+                    metricsCtx.fillRect(x, y, 280, 30);
+                    metricsCtx.fillStyle = '#fff';
+                    metricsCtx.font = 'bold 14px Arial';
+                    metricsCtx.fillText(category.category, x + 10, y + 20);
+                    
+                    // Metrics list
+                    metricsCtx.fillStyle = '#f9f9f9';
+                    metricsCtx.fillRect(x, y + 30, 280, 130);
+                    metricsCtx.strokeStyle = category.color;
+                    metricsCtx.lineWidth = 2;
+                    metricsCtx.strokeRect(x, y, 280, 160);
+                    
+                    metricsCtx.fillStyle = '#333';
+                    metricsCtx.font = '12px Arial';
+                    for(let j = 0; j < category.metrics.length; j++) {
+                        metricsCtx.fillText('• ' + category.metrics[j], x + 15, y + 55 + (j * 22));
+                    }
+                }
+                
+                // Bottom summary
+                metricsCtx.fillStyle = '#333';
+                metricsCtx.font = '14px Arial';
+                metricsCtx.fillText('Track weekly/monthly trends and set improvement goals for each category', 50, 420);
+            </script>
+
+            <h3>Google Analytics 4 Setup for Content Tracking</h3>
+            <pre><code>Google Analytics 4 Configuration for WordPress:
+
+Initial Setup:
+1. Create GA4 property in Google Analytics
+2. Install Google Analytics plugin or add tracking code
+3. Configure enhanced ecommerce (if applicable)
+4. Set up Google Tag Manager (recommended)
+5. Connect to Google Search Console
+
+Custom Events to Track:
+• Content engagement (scroll depth, time on page)
+• Download clicks (PDFs, resources)
+• External link clicks
+• Video play/completion rates
+• Form submissions and newsletter signups
+• Social media link clicks
+
+Custom Dimensions to Add:
+• Author name
+• Content category
+• Content type (blog, guide, review)
+• Word count range
+• Publication date range
+
+Goals/Conversions to Set Up:
+• Email newsletter subscriptions
+• Contact form completions
+• Resource downloads
+• Specific page visits (thank you pages)
+• Time on site thresholds
+• Pages per session targets
+
+Regular Reporting Schedule:
+• Weekly: Traffic trends and top content
+• Monthly: Conversion rates and goal completions
+• Quarterly: Content performance deep dive
+• Annually: Strategy review and optimization</code></pre>
+        </section>
+
+        <section>
+            <h2>Advanced Content Strategies</h2>
+            
+            <h3>Content Clustering and Topic Authority</h3>
+            <p>Content clustering is like creating a comprehensive encyclopedia on your expertise area rather than random magazine articles. Instead of writing isolated posts, you create interconnected content hubs that establish your authority on specific topics and help search engines understand your expertise.</p>
+
+            <div class="mermaid">
+                graph TD
+                    A[Main Topic: WordPress Development] --> B[Pillar Content: Complete WordPress Guide]
+                    
+                    B --> C[Cluster: WordPress Themes]
+                    B --> D[Cluster: WordPress Plugins]
+                    B --> E[Cluster: WordPress Security]
+                    B --> F[Cluster: WordPress Performance]
+                    
+                    C --> C1[How to Choose Themes]
+                    C --> C2[Custom Theme Development]
+                    C --> C3[Theme Customization Tips]
+                    C --> C4[Best Free Themes 2024]
+                    
+                    D --> D1[Essential Plugin Guide]
+                    D --> D2[Plugin Development Basics]
+                    D --> D3[Plugin Security Review]
+                    D --> D4[Plugin Performance Impact]
+                    
+                    E --> E1[WordPress Security Checklist]
+                    E --> E2[Malware Removal Guide]
+                    E --> E3[Security Plugin Comparison]
+                    E --> E4[WordPress Hardening Tips]
+                    
+                    style A fill:#e91e63,color:#fff
+                    style B fill:#2196f3,color:#fff
+                    style C fill:#4caf50,color:#fff
+                    style D fill:#ff9800,color:#fff
+                    style E fill:#9c27b0,color:#fff
+                    style F fill:#f44336,color:#fff
+            </div>
+
+            <h3>Content Repurposing and Maximizing Value</h3>
+            <p>Content repurposing is like being a master chef who can turn a whole chicken into soup, sandwiches, and stock - you get maximum value from your initial investment. One comprehensive blog post can become multiple pieces of content across different platforms and formats.</p>
+
+            <canvas id="repurposingCanvas" width="700" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const repurposingCanvas = document.getElementById('repurposingCanvas');
+                const repurposingCtx = repurposingCanvas.getContext('2d');
+                
+                repurposingCtx.font = 'bold 16px Arial';
+                repurposingCtx.fillStyle = '#9c27b0';
+                repurposingCtx.fillText('Content Repurposing Strategy', 50, 30);
+                
+                // Original content in center
+                repurposingCtx.fillStyle = '#2196f3';
+                repurposingCtx.fillRect(275, 150, 150, 100);
+                repurposingCtx.fillStyle = '#fff';
+                repurposingCtx.font = 'bold 14px Arial';
+                repurposingCtx.textAlign = 'center';
+                repurposingCtx.fillText('Original', 350, 190);
+                repurposingCtx.fillText('Blog Post', 350, 210);
+                repurposingCtx.fillText('(2000 words)', 350, 230);
+                
+                // Repurposed content formats
+                const formats = [
+                    {name: 'Social Posts', x: 100, y: 80, color: '#4caf50', items: ['5-7 Twitter threads', 'LinkedIn articles', 'Instagram carousels']},
+                    {name: 'Video Content', x: 500, y: 80, color: '#f44336', items: ['YouTube tutorial', 'Instagram Reels', 'TikTok snippets']},
+                    {name: 'Visual Content', x: 100, y: 300, color: '#ff9800', items: ['Infographic', 'Quote cards', 'Process diagrams']},
+                    {name: 'Audio Content', x: 500, y: 300, color: '#795548', items: ['Podcast episode', 'Audio summary', 'Voice-over guides']},
+                    {name: 'Email Content', x: 350, y: 50, color: '#e91e63', items: ['Newsletter series', 'Email course', 'Drip campaign']},
+                    {name: 'Lead Magnets', x: 350, y: 350, color: '#607d8b', items: ['PDF guide', 'Checklist', 'Template']}
+                ];
+                
+                for(let format of formats) {
+                    // Format box
+                    repurposingCtx.fillStyle = format.color;
+                    repurposingCtx.fillRect(format.x - 60, format.y - 30, 120, 60);
+                    repurposingCtx.fillStyle = '#fff';
+                    repurposingCtx.font = 'bold 11px Arial';
+                    repurposingCtx.textAlign = 'center';
+                    repurposingCtx.fillText(format.name, format.x, format.y - 5);
+                    
+                    // Connection line to center
+                    repurposingCtx.strokeStyle = '#ddd';
+                    repurposingCtx.lineWidth = 2;
+                    repurposingCtx.beginPath();
+                    repurposingCtx.moveTo(format.x, format.y);
+                    repurposingCtx.lineTo(350, 200);
+                    repurposingCtx.stroke();
+                    
+                    // Format details
+                    repurposingCtx.fillStyle = '#333';
+                    repurposingCtx.font = '9px Arial';
+                    for(let i = 0; i < format.items.length; i++) {
+                        repurposingCtx.fillText('• ' + format.items[i], format.x - 55, format.y + 20 + (i * 12));
+                    }
+                }
+                
+                repurposingCtx.textAlign = 'left';
+            </script>
+        </section>
+
+        <section>
+            <h2>Content Maintenance and Updates</h2>
+            
+            <h3>Content Isn't Set-It-and-Forget-It</h3>
+            <p>Content maintenance is like tending a garden - even the best plants need regular care to stay healthy and attractive. Old content can become outdated, links can break, and information can become inaccurate. Regular content audits and updates keep your site fresh and valuable.</p>
+
+            <h3>The Content Audit Process</h3>
+            <div class="mermaid">
+                journey
+                    title Quarterly Content Audit Process
+                    section Content Inventory
+                      Export All Content: 4: You
+                      Categorize by Type: 4: You
+                      Analyze Performance Data: 3: You
+                      Identify Top Performers: 5: You
+                    section Quality Assessment
+                      Check for Outdated Info: 3: You
+                      Test All Links: 2: You
+                      Review SEO Performance: 4: You
+                      Assess User Engagement: 4: You
+                    section Action Planning
+                      Mark for Updates: 4: You
+                      Schedule Improvements: 3: You
+                      Plan New Content: 4: You
+                      Set Optimization Goals: 4: You
+                    section Implementation
+                      Update Priority Content: 3: You
+                      Improve Underperformers: 2: You
+                      Consolidate Similar Content: 3: You
+                      Monitor Results: 4: You
+            </div>
+
+            <h3>Content Update Priority Matrix</h3>
+            <canvas id="updatePriorityCanvas" width="600" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const updateCanvas = document.getElementById('updatePriorityCanvas');
+                const updateCtx = updateCanvas.getContext('2d');
+                
+                // Create priority matrix
+                updateCtx.font = 'bold 16px Arial';
+                updateCtx.fillStyle = '#333';
+                updateCtx.fillText('Content Update Priority Matrix', 50, 30);
+                
+                // Draw matrix quadrants
+                updateCtx.strokeStyle = '#333';
+                updateCtx.lineWidth = 2;
+                updateCtx.beginPath();
+                updateCtx.moveTo(300, 80);
+                updateCtx.lineTo(300, 350);
+                updateCtx.moveTo(100, 215);
+                updateCtx.lineTo(500, 215);
+                updateCtx.stroke();
+                
+                // Axis labels
+                updateCtx.font = '12px Arial';
+                updateCtx.fillStyle = '#666';
+                updateCtx.fillText('Low Traffic', 120, 375);
+                updateCtx.fillText('High Traffic', 420, 375);
+                
+                updateCtx.save();
+                updateCtx.translate(30, 215);
+                updateCtx.rotate(-Math.PI / 2);
+                updateCtx.fillText('Content Quality', 0, 0);
+                updateCtx.restore();
+                
+                updateCtx.fillText('High Quality', 30, 100);
+                updateCtx.fillText('Low Quality', 30, 340);
+                
+                // Quadrant labels and colors
+                const quadrants = [
+                    {name: 'MAINTAIN', x: 200, y: 150, color: '#4caf50', priority: 'Low Priority'},
+                    {name: 'OPTIMIZE', x: 400, y: 150, color: '#2196f3', priority: 'Medium Priority'},
+                    {name: 'IMPROVE', x: 200, y: 280, color: '#ff9800', priority: 'Medium Priority'},  
+                    {name: 'URGENT', x: 400, y: 280, color: '#f44336', priority: 'High Priority'}
+                ];
+                
+                for(let quad of quadrants) {
+                    updateCtx.fillStyle = quad.color;
+                    updateCtx.globalAlpha = 0.2;
+                    updateCtx.fillRect(quad.name === 'MAINTAIN' || quad.name === 'IMPROVE' ? 100 : 300, 
+                                     quad.name === 'MAINTAIN' || quad.name === 'OPTIMIZE' ? 80 : 215, 200, 135);
+                    
+                    updateCtx.globalAlpha = 1;
+                    updateCtx.fillStyle = quad.color;
+                    updateCtx.font = 'bold 16px Arial';
+                    updateCtx.textAlign = 'center';
+                    updateCtx.fillText(quad.name, quad.x, quad.y);
+                    
+                    updateCtx.font = '12px Arial';
+                    updateCtx.fillText(quad.priority, quad.x, quad.y + 20);
+                }
+                
+                updateCtx.textAlign = 'left';
+            </script>
+            </canvas>
+
+            <h3>Content Refresh Checklist</h3>
+            <pre><code>Content Update and Refresh Checklist:
+
+Information Accuracy:
+□ Update statistics and data points
+□ Verify all facts and figures
+□ Check industry changes or developments
+□ Update software versions/screenshots
+□ Refresh examples and case studies
+
+Technical Elements:
+□ Test all internal and external links
+□ Update broken or redirected URLs
+□ Optimize images (compress, add alt text)
+□ Review meta titles and descriptions
+□ Check mobile responsiveness
+
+SEO Optimization:
+□ Update target keywords if needed
+□ Improve on-page SEO elements
+□ Add internal links to newer content
+□ Update featured image if necessary
+□ Refresh social media preview text
+
+Content Enhancement:
+□ Add new sections or insights
+□ Include recent examples or trends
+□ Update calls-to-action
+□ Improve readability and formatting
+□ Add relevant videos or infographics
+
+Performance Tracking:
+□ Note baseline metrics before updates
+□ Monitor traffic changes post-update
+□ Track ranking improvements
+□ Measure engagement improvements
+□ Document successful update strategies</code></pre>
+        </section>
+
+        <section>
+            <h2>Your Content Creation Mastery Action Plan</h2>
+            
+            <h3>From Content Consumer to Content Creator</h3>
+            <p>Mastering content creation is like learning to play a musical instrument - it requires practice, patience, and gradually building complexity. Start with the fundamentals, develop consistency, then add advanced techniques as you grow more confident.</p>
+
+            <div class="mermaid">
+                journey
+                    title Your Content Mastery Journey
+                    section Week 1: Foundation
+                      Set Up Content Workspace: 5: You
+                      Create Content Calendar: 4: You
+                      Write First Blog Post: 3: You
+                      Optimize for SEO: 3: You
+                    section Week 2: Consistency
+                      Publish Second Post: 4: You
+                      Create Content Templates: 4: You
+                      Set Up Analytics: 3: You
+                      Engage with Comments: 5: You
+                    section Week 3: Optimization
+                      Analyze Performance Data: 3: You
+                      Update Old Content: 3: You
+                      Create Content Clusters: 2: You
+                      Repurpose Content: 4: You
+                    section Week 4: Advanced Strategy
+                      Build Email List: 4: You
+                      Create Lead Magnets: 3: You
+                      Plan Content Series: 4: You
+                      Develop Content Voice: 5: You
+            </div>
+
+            <h3>Your Content Creation Toolkit</h3>
+            
+            <canvas id="contentToolkitCanvas" width="700" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const toolkitContentCanvas = document.getElementById('contentToolkitCanvas');
+                const toolkitContentCtx = toolkitContentCanvas.getContext('2d');
+                
+                toolkitContentCtx.font = 'bold 18px Arial';
+                toolkitContentCtx.fillStyle = '#1976d2';
+                toolkitContentCtx.fillText('Your Complete Content Creation Toolkit', 50, 30);
+                
+                const toolCategories = [
+                    {
+                        category: 'Writing Tools',
+                        color: '#4caf50',
+                        tools: ['Grammarly (grammar)', 'Hemingway (readability)', 'Google Docs (collaboration)', 'Notion (organization)']
+                    },
+                    {
+                        category: 'SEO & Research',
+                        color: '#2196f3',
+                        tools: ['Yoast SEO (optimization)', 'Google Keyword Planner', 'Answer The Public', 'SEMrush/Ahrefs']
+                    },
+                    {
+                        category: 'Visual Content',
+                        color: '#ff9800',
+                        tools: ['Canva (design)', 'Unsplash (photos)', 'GIMP (editing)', 'Loom (screen recording)']
+                    },
+                    {
+                        category: 'Analytics & Planning',
+                        color: '#e91e63',
+                        tools: ['Google Analytics', 'Content Calendar', 'Social Media Schedulers', 'Heatmap Tools']
+                    }
+                ];
+                
+                for(let i = 0; i < toolCategories.length; i++) {
+                    const x = 50 + (i % 2) * 325;
+                    const y = 70 + Math.floor(i / 2) * 150;
+                    const category = toolCategories[i];
+                    
+                    // Category header
+                    toolkitContentCtx.fillStyle = category.color;
+                    toolkitContentCtx.fillRect(x, y, 300, 30);
+                    toolkitContentCtx.fillStyle = '#fff';
+                    toolkitContentCtx.font = 'bold 14px Arial';
+                    toolkitContentCtx.fillText(category.category, x + 10, y + 20);
+                    
+                    // Tools list
+                    toolkitContentCtx.fillStyle = '#f9f9f9';
+                    toolkitContentCtx.fillRect(x, y + 30, 300, 100);
+                    toolkitContentCtx.strokeStyle = category.color;
+                    toolkitContentCtx.strokeRect(x, y, 300, 130);
+                    
+                    toolkitContentCtx.fillStyle = '#333';
+                    toolkitContentCtx.font = '11px Arial';
+                    for(let j = 0; j < category.tools.length; j++) {
+                        toolkitContentCtx.fillText('• ' + category.tools[j], x + 10, y + 50 + (j * 18));
+                    }
+                }
+            </script>
+
+            <h3>The Content Creator's Golden Rules</h3>
+            <p>As you embark on your content creation journey, remember these fundamental principles that separate successful content creators from those who struggle:</p>
+
+            <ul>
+                <li><strong>Consistency Beats Perfection</strong> - Regular, good content beats sporadic, perfect content</li>
+                <li><strong>Know Your Audience Intimately</strong> - Write for specific people, not generic demographics</li>
+                <li><strong>Value First, Promotion Second</strong> - Always provide value before asking for anything</li>
+                <li><strong>Embrace Your Unique Voice</strong> - Authenticity resonates more than perfection</li>
+                <li><strong>Test and Iterate</strong> - Use data to improve, but don't let perfectionism paralyze you</li>
+                <li><strong>Focus on Problems and Solutions</strong> - Address real pain points your audience faces</li>
+                <li><strong>Build Relationships, Not Just Traffic</strong> - Engage with your community genuinely</li>
+                <li><strong>Stay Curious and Keep Learning</strong> - The best content creators never stop growing</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Content Creation Challenges and Solutions</h2>
+            
+            <h3>Overcoming Writer's Block and Creative Drought</h3>
+            <p>Every content creator faces the dreaded blank page syndrome - it's like a musician staring at empty sheet music or an artist facing a blank canvas. The key is having systems and strategies to overcome these creative blocks and maintain consistent output.</p>
+
+            <canvas id="writersBlockCanvas" width="650" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const blockCanvas = document.getElementById('writersBlockCanvas');
+                const blockCtx = blockCanvas.getContext('2d');
+                
+                blockCtx.font = 'bold 16px Arial';
+                blockCtx.fillStyle = '#d32f2f';
+                blockCtx.fillText('Overcoming Writer\'s Block: Strategies That Work', 50, 30);
+                
+                // Problem section
+                blockCtx.fillStyle = '#ffebee';
+                blockCtx.fillRect(50, 60, 250, 120);
+                blockCtx.strokeStyle = '#f44336';
+                blockCtx.strokeRect(50, 60, 250, 120);
+                
+                blockCtx.fillStyle = '#d32f2f';
+                blockCtx.font = 'bold 14px Arial';
+                blockCtx.fillText('Common Causes of Writer\'s Block:', 60, 85);
+                
+                blockCtx.fillStyle = '#333';
+                blockCtx.font = '12px Arial';
+                const causes = [
+                    '• Perfectionism paralysis',
+                    '• Lack of clear direction',
+                    '• Information overload', 
+                    '• Fear of judgment',
+                    '• Physical/mental fatigue',
+                    '• Unclear target audience'
+                ];
+                
+                for(let i = 0; i < causes.length; i++) {
+                    blockCtx.fillText(causes[i], 70, 105 + (i * 16));
+                }
+                
+                // Solutions section
+                blockCtx.fillStyle = '#e8f5e8';
+                blockCtx.fillRect(320, 60, 280, 320);
+                blockCtx.strokeStyle = '#4caf50';
+                blockCtx.strokeRect(320, 60, 280, 320);
+                
+                blockCtx.fillStyle = '#2e7d32';
+                blockCtx.font = 'bold 14px Arial';
+                blockCtx.fillText('Proven Solutions:', 330, 85);
+                
+                blockCtx.fillStyle = '#333';
+                blockCtx.font = '12px Arial';
+                const solutions = [
+                    '1. Start with a brain dump - write anything',
+                    '2. Use content templates and frameworks',
+                    '3. Interview your audience for ideas',
+                    '4. Repurpose existing content differently',
+                    '5. Set writing sessions with timers',
+                    '6. Change your physical environment',
+                    '7. Write headlines first, content second',
+                    '8. Use the "teach what you learned" method',
+                    '9. Answer common customer questions',
+                    '10. Curate and comment on industry news',
+                    '11. Share behind-the-scenes stories',
+                    '12. Create response posts to trending topics',
+                    '13. Build content around your mistakes',
+                    '14. Interview experts in your field',
+                    '15. Document your learning journey'
+                ];
+                
+                for(let i = 0; i < solutions.length; i++) {
+                    blockCtx.fillText(solutions[i], 330, 105 + (i * 16));
+                }
+                
+                // Emergency content ideas
+                blockCtx.fillStyle = '#fff3e0';
+                blockCtx.fillRect(50, 200, 250, 180);
+                blockCtx.strokeStyle = '#ff9800';
+                blockCtx.strokeRect(50, 200, 250, 180);
+                
+                blockCtx.fillStyle = '#f57c00';
+                blockCtx.font = 'bold 14px Arial';
+                blockCtx.fillText('Emergency Content Ideas:', 60, 225);
+                
+                blockCtx.fillStyle = '#333';
+                blockCtx.font = '11px Arial';
+                const emergencyIdeas = [
+                    '• "X Things I Wish I Knew When Starting"',
+                    '• "Common Mistakes in [Your Field]"',
+                    '• "Tools I Use Daily for [Task]"',
+                    '• "Week in Review: What I Learned"',
+                    '• "Answering Your Questions" post',
+                    '• "My Take on [Industry News]"',
+                    '• "Step-by-Step: How I [Do Something]"',
+                    '• "Resources That Changed My [Career/Life]"',
+                    '• "Debunking Myths About [Topic]"',
+                    '• "What Would I Do Differently Now?"'
+                ];
+                
+                for(let i = 0; i < emergencyIdeas.length; i++) {
+                    blockCtx.fillText(emergencyIdeas[i], 60, 245 + (i * 15));
+                }
+            </script>
+
+            <h3>Building a Sustainable Content Creation Habit</h3>
+            <div class="mermaid">
+                graph TD
+                    A[Sustainable Content Creation] --> B[Time Management]
+                    A --> C[Energy Management] 
+                    A --> D[Idea Management]
+                    A --> E[Quality Standards]
+                    
+                    B --> B1[Block dedicated writing time]
+                    B --> B2[Use templates and systems]
+                    B --> B3[Batch similar tasks]
+                    B --> B4[Set realistic deadlines]
+                    
+                    C --> C1[Write when you're sharpest]
+                    C --> C2[Take regular breaks]
+                    C --> C3[Maintain work-life balance]
+                    C --> C4[Practice self-care]
+                    
+                    D --> D1[Keep an idea notebook]
+                    D --> D2[Follow industry trends]
+                    D --> D3[Ask audience questions]
+                    D --> D4[Repurpose old content]
+                    
+                    E --> E1[Define "good enough"]
+                    E --> E2[Focus on value over perfection]
+                    E --> E3[Set content standards]
+                    E --> E4[Regular quality reviews]
+                    
+                    style A fill:#e91e63,color:#fff
+                    style B fill:#2196f3,color:#fff
+                    style C fill:#4caf50,color:#fff
+                    style D fill:#ff9800,color:#fff
+                    style E fill:#9c27b0,color:#fff
+            </div>
+        </section>
+
+        <section>
+            <h2>Advanced WordPress Content Features</h2>
+            
+            <h3>Custom Fields and Advanced Content Types</h3>
+            <p>WordPress custom fields are like adding specialized compartments to a filing cabinet. While the basic post format works for most content, custom fields allow you to store and display additional information in structured ways - like product specifications, event details, or team member information.</p>
+
+            <h3>Working with the WordPress REST API for Content</h3>
+            <pre><code>WordPress REST API - Content Endpoints:
+
+Basic Content Retrieval:
+GET /wp-json/wp/v2/posts          # Get all posts
+GET /wp-json/wp/v2/posts/123      # Get specific post
+GET /wp-json/wp/v2/pages          # Get all pages
+GET /wp-json/wp/v2/categories     # Get categories
+GET /wp-json/wp/v2/tags           # Get tags
+
+Advanced Content Queries:
+GET /wp-json/wp/v2/posts?per_page=5&amp;orderby=date&amp;order=desc
+GET /wp-json/wp/v2/posts?categories=10&amp;tags=15
+GET /wp-json/wp/v2/posts?search=wordpress&amp;_fields=id,title,excerpt
+GET /wp-json/wp/v2/posts?author=2&amp;status=publish
+
+Creating Content via API:
+POST /wp-json/wp/v2/posts
+{
+  "title": "New Post Title",
+  "content": "Post content here",
+  "status": "draft",
+  "categories": [1, 3],
+  "tags": [5, 7],
+  "meta": {
+    "custom_field": "custom_value"
+  }
+}
+
+Authentication Required:
+- Use Application Passwords
+- JWT tokens for more secure access
+- OAuth for third-party applications</code></pre>
+
+            <h3>Headless WordPress and Modern Content Delivery</h3>
+            <p>Headless WordPress is like separating a restaurant's kitchen from its dining room - the kitchen (WordPress backend) focuses on content creation and management, while the dining room (frontend) can be anything from a React app to a mobile application, all consuming content via the REST API.</p>
+
+            <div class="mermaid">
+                graph LR
+                    A[WordPress Backend] --> B[REST API]
+                    B --> C[React Frontend]
+                    B --> D[Mobile App]
+                    B --> E[Other Websites]
+                    B --> F[Third-party Tools]
+                    
+                    A --> A1[Content Management]
+                    A --> A2[User Management]
+                    A --> A3[Media Library]
+                    A --> A4[Plugin Ecosystem]
+                    
+                    C --> C1[Fast Performance]
+                    C --> C2[Modern UI/UX]
+                    C --> C3[SEO Optimized]
+                    
+                    D --> D1[Native Experience]
+                    D --> D2[Offline Capability]
+                    D --> D3[Push Notifications]
+                    
+                    style A fill:#0073aa,color:#fff
+                    style B fill:#21759b,color:#fff
+                    style C fill:#61dafb,color:#000
+                    style D fill:#a4c639,color:#fff
+            </div>
+        </section>
+
+        <section>
+            <h2>Content Security and Backup Strategies</h2>
+            
+            <h3>Protecting Your Content Assets</h3>
+            <p>Your content is like a valuable art collection - it represents hours of work, expertise, and creative energy. Protecting it requires multiple layers of security and backup strategies to ensure your digital assets remain safe from threats and disasters.</p>
+
+            <canvas id="contentSecurityCanvas" width="650" height="350" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const securityCanvas = document.getElementById('contentSecurityCanvas');
+                const securityCtx = securityCanvas.getContext('2d');
+                
+                securityCtx.font = 'bold 16px Arial';
+                securityCtx.fillStyle = '#d32f2f';
+                securityCtx.fillText('Content Protection Strategy', 50, 30);
+                
+                // Security layers - concentric circles
+                const layers = [
+                    {name: 'Backups', radius: 120, color: '#4caf50'},
+                    {name: 'Access Control', radius: 90, color: '#2196f3'},
+                    {name: 'Content Security', radius: 60, color: '#ff9800'},
+                    {name: 'Your Content', radius: 30, color: '#e91e63'}
+                ];
+                
+                const centerX = 325;
+                const centerY = 180;
+                
+                for(let i = 0; i < layers.length; i++) {
+                    const layer = layers[i];
+                    
+                    // Draw circle
+                    securityCtx.strokeStyle = layer.color;
+                    securityCtx.lineWidth = 3;
+                    securityCtx.beginPath();
+                    securityCtx.arc(centerX, centerY, layer.radius, 0, 2 * Math.PI);
+                    securityCtx.stroke();
+                    
+                    // Fill with transparent color
+                    securityCtx.fillStyle = layer.color;
+                    securityCtx.globalAlpha = 0.1;
+                    securityCtx.fill();
+                    securityCtx.globalAlpha = 1;
+                    
+                    // Label
+                    securityCtx.fillStyle = layer.color;
+                    securityCtx.font = 'bold 12px Arial';
+                    securityCtx.fillText(layer.name, centerX + layer.radius - 30, centerY - layer.radius + 15);
+                }
+                
+                // Security measures list
+                const measures = [
+                    {category: 'Backup Strategy', items: ['Automated daily backups', 'Multiple storage locations', 'Version control for content', 'Regular restore testing']},
+                    {category: 'Access Security', items: ['Strong admin passwords', 'Two-factor authentication', 'Limited user permissions', 'Regular security audits']},
+                    {category: 'Content Protection', items: ['Copyright notices', 'Content plagiarism monitoring', 'Image watermarking', 'RSS feed protection']}
+                ];
+                
+                let yPos = 60;
+                for(let measure of measures) {
+                    securityCtx.fillStyle = '#333';
+                    securityCtx.font = 'bold 12px Arial';
+                    securityCtx.fillText(measure.category, 50, yPos);
+                    
+                    securityCtx.font = '10px Arial';
+                    securityCtx.fillStyle = '#666';
+                    for(let i = 0; i < measure.items.length; i++) {
+                        securityCtx.fillText('• ' + measure.items[i], 60, yPos + 15 + (i * 12));
+                    }
+                    yPos += 80;
+                }
+            </script>
+
+            <h3>Content Backup and Version Control</h3>
+            <pre><code>Comprehensive Content Backup Strategy:
+
+Automated Backups:
+□ Daily database backups (content and settings)
+□ Weekly full site backups (files + database)
+□ Real-time backup for high-traffic sites
+□ Automated off-site storage (cloud services)
+
+Version Control for Content:
+□ Use revision history in WordPress
+□ Export content regularly as XML
+□ Document major content changes
+□ Keep archives of important content versions
+
+Multiple Storage Locations:
+□ Primary: Web hosting backup system
+□ Secondary: Cloud storage (Google Drive, Dropbox)
+□ Tertiary: Local computer backup
+□ Emergency: Physical storage device
+
+Content Recovery Plan:
+□ Document backup restoration process
+□ Test recovery procedures quarterly
+□ Maintain emergency contact information
+□ Keep backup access credentials secure
+□ Train team members on recovery process
+
+Content Monitoring:
+□ Set up Google Alerts for your content
+□ Use plagiarism detection tools
+□ Monitor for unauthorized republishing
+□ Track backlinks and content mentions
+□ Regular content integrity checks</code></pre>
+        </section>
+
+        <section>
+            <h2>The Future of WordPress Content Creation</h2>
+            
+            <h3>Emerging Trends and Technologies</h3>
+            <p>The future of content creation is evolving rapidly, like the transition from printing presses to digital publishing. WordPress continues to adapt to new technologies and user expectations, offering content creators powerful new tools and possibilities.</p>
+
+            <div class="mermaid">
+                timeline
+                    title Future of WordPress Content
+                    2024 : AI-Assisted Writing
+                         : Automated content suggestions and optimization
+                    2025 : Voice Content Integration
+                         : Audio posts and voice search optimization
+                    2026 : AR/VR Content Support
+                         : Immersive content experiences
+                    2027 : Advanced Personalization
+                         : Dynamic content based on user behavior
+                    2028 : Blockchain Integration
+                         : Content verification and creator payments
+                    2029 : Neural Content Networks
+                         : AI-human collaboration in real-time
+            </div>
+
+            <h3>Preparing for the Content Creator Economy</h3>
+            <p>The content creator economy is transforming how people make money from their expertise and creativity. WordPress is positioning itself as a key platform for creators to build sustainable businesses around their content, offering tools for monetization, audience building, and community creation.</p>
+
+            <canvas id="creatorEconomyCanvas" width="700" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const economyCanvas = document.getElementById('creatorEconomyCanvas');
+                const economyCtx = economyCanvas.getContext('2d');
+                
+                economyCtx.font = 'bold 16px Arial';
+                economyCtx.fillStyle = '#1976d2';
+                economyCtx.fillText('WordPress Creator Economy Opportunities', 50, 30);
+                
+                // Revenue streams
+                const revenueStreams = [
+                    {name: 'Content Sales', amount: 35, color: '#4caf50', x: 100, y: 80},
+                    {name: 'Memberships', amount: 25, color: '#2196f3', x: 300, y: 80},
+                    {name: 'Courses', amount: 20, color: '#ff9800', x: 500, y: 80},
+                    {name: 'Consulting', amount: 15, color: '#e91e63', x: 100, y: 200},
+                    {name: 'Advertising', amount: 10, color: '#9c27b0', x: 300, y: 200},
+                    {name: 'Affiliates', amount: 8, color: '#795548', x: 500, y: 200},
+                    {name: 'Donations', amount: 5, color: '#607d8b', x: 100, y: 320},
+                    {name: 'Licensing', amount: 7, color: '#ff5722', x: 300, y: 320}
+                ];
+                
+                for(let stream of revenueStreams) {
+                    // Revenue bar
+                    const barHeight = stream.amount * 3;
+                    economyCtx.fillStyle = stream.color;
+                    economyCtx.fillRect(stream.x, stream.y + 60 - barHeight, 80, barHeight);
+                    
+                    // Percentage label
+                    economyCtx.fillStyle = '#fff';
+                    economyCtx.font = 'bold 12px Arial';
+                    economyCtx.textAlign = 'center';
+                    economyCtx.fillText(stream.amount + '%', stream.x + 40, stream.y + 45 - barHeight/2);
+                    
+                    // Stream name
+                    economyCtx.fillStyle = '#333';
+                    economyCtx.font = '11px Arial';
+                    economyCtx.fillText(stream.name, stream.x + 40, stream.y + 75);
+                }
+                
+                economyCtx.textAlign = 'left';
+                
+                // WordPress tools for creators
+                economyCtx.fillStyle = '#333';
+                economyCtx.font = 'bold 14px Arial';
+                economyCtx.fillText('WordPress Creator Tools:', 50, 370);
+                
+                economyCtx.font = '12px Arial';
+                const creatorTools = [
+                    'WooCommerce (product sales)',
+                    'MemberPress (subscriptions)', 
+                    'LearnDash (course creation)',
+                    'WP Patron (donations)',
+                    'Easy Digital Downloads (digital products)'
+                ];
+                
+                for(let i = 0; i < creatorTools.length; i++) {
+                    economyCtx.fillText('• ' + creatorTools[i], 60, 390 + (i * 15));
+                }
+            </script>
+        </section>
+
+        <section>
+            <h2>What's Next in Your WordPress Journey</h2>
+            
+            <p>Congratulations! You've just mastered the art and science of WordPress content creation. You now understand how to plan, create, optimize, and maintain content that engages audiences and achieves business goals. You've learned to use WordPress's powerful content management features like a professional publisher.</p>
+            
+            <p>In our next and final core lesson, we'll bring everything together as we prepare to launch your WordPress site to the world. We'll cover final optimization, security hardening, performance tuning, and the critical steps to ensure your site is ready for real-world traffic and success.</p>
+            
+            <canvas id="finalContentProgressCanvas" width="650" height="200" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const finalContentProgressCanvas = document.getElementById('finalContentProgressCanvas');
+                const finalContentProgressCtx = finalContentProgressCanvas.getContext('2d');
+                
+                finalContentProgressCtx.font = '18px Arial';
+                finalContentProgressCtx.fillStyle = '#1976d2';
+                finalContentProgressCtx.textAlign = 'center';
+                finalContentProgressCtx.fillText('WordPress Mastery Journey Progress', 325, 30);
+                
+                const finalContentMilestones = [
+                    { name: 'Basics', complete: true, color: '#4caf50' },
+                    { name: 'Setup', complete: true, color: '#4caf50' }, 
+                    { name: 'Themes', complete: true, color: '#4caf50' },
+                    { name: 'Plugins', complete: true, color: '#4caf50' },
+                    { name: 'Content', complete: true, color: '#4caf50' },
+                    { name: 'Launch', complete: false, color: '#ddd' }
+                ];
+                
+                // Progress line
+                finalContentProgressCtx.strokeStyle = '#4caf50';
+                finalContentProgressCtx.lineWidth = 8;
+                finalContentProgressCtx.beginPath();
+                finalContentProgressCtx.moveTo(100, 80);
+                finalContentProgressCtx.lineTo(450, 80);
+                finalContentProgressCtx.stroke();
+                
+                finalContentProgressCtx.strokeStyle = '#ddd';
+                finalContentProgressCtx.beginPath();
+                finalContentProgressCtx.moveTo(450, 80);
+                finalContentProgressCtx.lineTo(550, 80);
+                finalContentProgressCtx.stroke();
+                
+                // Milestone circles
+                for(let i = 0; i < finalContentMilestones.length; i++) {
+                    const x = 100 + (i * 90);
+                    const milestone = finalContentMilestones[i];
+                    
+                    finalContentProgressCtx.beginPath();
+                    finalContentProgressCtx.arc(x, 80, 25, 0, 2 * Math.PI);
+                    finalContentProgressCtx.fillStyle = milestone.color;
+                    finalContentProgressCtx.fill();
+                    finalContentProgressCtx.strokeStyle = '#fff';
+                    finalContentProgressCtx.lineWidth = 4;
+                    finalContentProgressCtx.stroke();
+                    
+                    // Milestone content
+                    finalContentProgressCtx.fillStyle = milestone.complete ? '#fff' : '#666';
+                    finalContentProgressCtx.font = 'bold 14px Arial';
+                    finalContentProgressCtx.textAlign = 'center';
+                    if(milestone.complete) {
+                        finalContentProgressCtx.fillText('✓', x, 87);
+                    } else {
+                        finalContentProgressCtx.fillText((i + 1).toString(), x, 87);
+                    }
+                    
+                    // Milestone name
+                    finalContentProgressCtx.fillStyle = '#333';
+                    finalContentProgressCtx.font = '13px Arial';
+                    finalContentProgressCtx.fillText(milestone.name, x, 120);
+                }
+                
+                // Celebration message
+                finalContentProgressCtx.fillStyle = '#1976d2';
+                finalContentProgressCtx.font = 'bold 18px Arial';
+                finalContentProgressCtx.textAlign = 'center';
+                finalContentProgressCtx.fillText('Content Creation Mastery Achieved! 🎉', 325, 155);
+                
+                finalContentProgressCtx.font = '14px Arial';
+                finalContentProgressCtx.fillStyle = '#666';
+                finalContentProgressCtx.fillText('Ready for launch preparation...', 325, 180);
+            </script>
+            
+            <h3>Your Content Creation Legacy</h3>
+            <p><strong>Remember:</strong> Great content is not about perfect grammar or flawless design - it's about connecting with real people and solving real problems. You now have the tools and knowledge to create content that makes a difference in people's lives. Use this power to build something meaningful.</p>
+            
+            <p>The web needs more authentic voices, more helpful resources, and more genuine connections. Your unique perspective and expertise are valuable. Share them confidently, consistently, and with care for your audience's needs.</p>
+            
+            <h3>Content Creation Mantras</h3>
+            <ul>
+                <li><strong>"Consistency builds trust"</strong> - Show up regularly for your audience</li>
+                <li><strong>"Value first, everything else second"</strong> - Always prioritize helping over selling</li>
+                <li><strong>"Progress over perfection"</strong> - Published and helpful beats perfect and delayed</li>
+                <li><strong>"Authentic beats polished"</strong> - People connect with real humans, not marketing machines</li>
+                <li><strong>"Community over competition"</strong> - Support other creators and build relationships</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Final adventure: "WordPress Launch & Optimization - Going Live Like a Pro" where we'll prepare your site for the world and ensure it's ready for success!</p>
+    </footer>
+</body>
+</html>
