@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress Themes - Dressing Your Digital Storefront</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>WordPress Themes - Dressing Your Digital Storefront</h1>
+        <p>Transform your website's appearance from bland to brand-amazing!</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>What Are WordPress Themes? The Wardrobe Analogy</h2>
+            <p>Imagine you have the perfect personality, interesting stories, and valuable insights to share. But if you showed up to a job interview in pajamas, people might not take you seriously. Your content is your personality, but your theme is your outfit - it creates the first impression and sets expectations.</p>
+            
+            <p>WordPress themes are like complete wardrobe makeovers for your website. They control colors, fonts, layouts, and the overall visual experience without changing your actual content. Think of it as changing from casual Friday clothes to a business suit - same person, completely different presentation!</p>
+
+            <div class="mermaid">
+                graph TD
+                    A[Your WordPress Site] --> B[Content Layer]
+                    A --> C[Theme Layer]
+                    A --> D[Plugin Layer]
+                    
+                    B --> B1[Posts &amp; Pages]
+                    B --> B2[Images &amp; Media]
+                    B --> B3[User Data]
+                    
+                    C --> C1[Visual Design]
+                    C --> C2[Layout Structure]
+                    C --> C3[Typography]
+                    C --> C4[Colors &amp; Styling]
+                    
+                    D --> D1[Functionality]
+                    D --> D2[Features]
+                    D --> D3[Extensions]
+                    
+                    style C fill:#e91e63,color:#fff
+                    style B fill:#2196f3,color:#fff
+                    style D fill:#4caf50,color:#fff
+            </div>
+        </section>
+
+        <section>
+            <h2>The Theme Ecosystem - Your Style Shopping Mall</h2>
+            
+            <h3>Free Themes - The Department Store</h3>
+            <p>The WordPress.org theme directory is like a massive department store with over 9,000 free themes. They're well-made, regularly updated, and perfect for getting started. However, like department store clothes, they're mass-produced and you might see others wearing the same "outfit."</p>
+
+            <canvas id="themeSourcesCanvas" width="700" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const themeCanvas = document.getElementById('themeSourcesCanvas');
+                const themeCtx = themeCanvas.getContext('2d');
+                
+                // Theme sources comparison
+                const sources = ['WordPress.org', 'Premium Shops', 'Custom Built'];
+                const counts = [9000, 50000, 1];
+                const prices = [0, 50, 5000];
+                const quality = [7, 9, 10];
+                
+                themeCtx.font = 'bold 18px Arial';
+                themeCtx.fillStyle = '#333';
+                themeCtx.fillText('Theme Source Comparison', 50, 30);
+                
+                // Draw comparison chart
+                const barWidth = 60;
+                const spacing = 200;
+                
+                for(let i = 0; i < sources.length; i++) {
+                    const x = 80 + (i * spacing);
+                    
+                    // Theme count bars (scaled down)
+                    themeCtx.fillStyle = '#2196f3';
+                    const countHeight = Math.min(counts[i] / 50, 150);
+                    themeCtx.fillRect(x, 200 - countHeight, barWidth, countHeight);
+                    
+                    // Price bars
+                    themeCtx.fillStyle = '#ff9800';
+                    const priceHeight = Math.min(prices[i] / 50, 150);
+                    themeCtx.fillRect(x + 70, 200 - priceHeight, barWidth, priceHeight);
+                    
+                    // Quality bars
+                    themeCtx.fillStyle = '#4caf50';
+                    const qualityHeight = quality[i] * 15;
+                    themeCtx.fillRect(x + 140, 200 - qualityHeight, barWidth, qualityHeight);
+                    
+                    // Labels
+                    themeCtx.fillStyle = '#333';
+                    themeCtx.font = '12px Arial';
+                    themeCtx.fillText(sources[i], x + 50, 220);
+                    themeCtx.fillText(counts[i] + ' themes', x + 30, 240);
+                    themeCtx.fillText('$' + prices[i] + ' avg', x + 100, 240);
+                }
+                
+                // Legend
+                themeCtx.fillStyle = '#2196f3';
+                themeCtx.fillRect(50, 280, 20, 15);
+                themeCtx.fillStyle = '#333';
+                themeCtx.fillText('Available Themes', 80, 292);
+                
+                themeCtx.fillStyle = '#ff9800';
+                themeCtx.fillRect(220, 280, 20, 15);
+                themeCtx.fillText('Average Price', 250, 292);
+                
+                themeCtx.fillStyle = '#4caf50';
+                themeCtx.fillRect(370, 280, 20, 15);
+                themeCtx.fillText('Quality Level', 400, 292);
+            </script>
+
+            <h3>Premium Themes - The Designer Boutique</h3>
+            <p>Premium theme shops like ThemeForest, Elegant Themes, and StudioPress are like designer boutiques. Higher quality, more unique designs, better support, and additional features. Prices typically range from $30-100, but you get what you pay for.</p>
+
+            <div class="mermaid">
+                mindmap
+                  root((Theme Types))
+                    Blog Themes
+                      Personal
+                      Magazine
+                      News
+                    Business Themes
+                      Corporate
+                      Agency
+                      Portfolio
+                    E-commerce Themes
+                      WooCommerce
+                      Product Showcase
+                      Marketplace
+                    Specialized Themes
+                      Photography
+                      Restaurant
+                      Real Estate
+                      Education
+            </div>
+        </section>
+
+        <section>
+            <h2>Anatomy of a WordPress Theme - Under the Hood</h2>
+            
+            <h3>Theme Files - The Blueprint of Beauty</h3>
+            <p>Every WordPress theme is like a house blueprint - it has essential rooms (files) that serve specific purposes. Understanding this structure helps you customize themes effectively and troubleshoot issues.</p>
+
+            <pre><code>Essential WordPress Theme Files:
+
+/your-theme-folder/
+├── style.css (Main stylesheet - the paint and decor)
+├── index.php (Default template - the basic room layout)
+├── functions.php (Theme features - the electrical system)
+├── header.php (Top section - the roof and facade)
+├── footer.php (Bottom section - the foundation)
+├── sidebar.php (Side content - additional rooms)
+├── single.php (Individual post layout)
+├── page.php (Static page layout)
+├── archive.php (Post listing layout)
+├── search.php (Search results layout)
+└── 404.php (Error page - the "wrong address" sign)</code></pre>
+
+            <h3>The WordPress Template Hierarchy</h3>
+            <p>WordPress is like a smart interior designer that automatically chooses the best room layout based on what content you're showing. This is called the template hierarchy:</p>
+
+            <div class="mermaid">
+                flowchart TD
+                    A[User Visits Page] --> B{What Type of Content?}
+                    B --> C[Blog Post]
+                    B --> D[Static Page]
+                    B --> E[Category Page]
+                    B --> F[Search Results]
+                    
+                    C --> C1[Look for single-post.php]
+                    C1 --> C2[single.php]
+                    C2 --> C3[index.php]
+                    
+                    D --> D1[Look for page-slug.php]
+                    D1 --> D2[page-id.php]
+                    D2 --> D3[page.php]
+                    D3 --> D4[index.php]
+                    
+                    E --> E1[category-slug.php]
+                    E1 --> E2[category.php]
+                    E2 --> E3[archive.php]
+                    E3 --> E4[index.php]
+                    
+                    style A fill:#e91e63,color:#fff
+                    style C3 fill:#ff9800,color:#fff
+                    style D4 fill:#ff9800,color:#fff
+                    style E4 fill:#ff9800,color:#fff
+            </div>
+        </section>
+
+        <section>
+            <h2>Choosing the Perfect Theme - Your Style Discovery Journey</h2>
+            
+            <h3>The Three-Layer Decision Process</h3>
+            <p>Choosing a theme is like finding your personal style. You need to consider function, aesthetics, and long-term goals. Here's how to approach it systematically:</p>
+
+            <canvas id="themeSelectionCanvas" width="600" height="450" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const selectionCanvas = document.getElementById('themeSelectionCanvas');
+                const selectionCtx = selectionCanvas.getContext('2d');
+                
+                // Theme selection process
+                selectionCtx.font = 'bold 16px Arial';
+                selectionCtx.fillStyle = '#e91e63';
+                selectionCtx.fillText('Theme Selection Process', 50, 30);
+                
+                // Layer 1: Function
+                selectionCtx.fillStyle = '#2196f3';
+                selectionCtx.fillRect(50, 60, 500, 100);
+                selectionCtx.fillStyle = '#fff';
+                selectionCtx.font = 'bold 14px Arial';
+                selectionCtx.fillText('Layer 1: Functionality Requirements', 60, 85);
+                selectionCtx.font = '12px Arial';
+                const funcReqs = [
+                    '• What type of site? (blog, business, portfolio, store)',
+                    '• Required features? (contact forms, galleries, sliders)',
+                    '• Mobile responsiveness essential?',
+                    '• SEO optimization needed?'
+                ];
+                for(let i = 0; i < funcReqs.length; i++) {
+                    selectionCtx.fillText(funcReqs[i], 70, 105 + (i * 15));
+                }
+                
+                // Layer 2: Aesthetics
+                selectionCtx.fillStyle = '#4caf50';
+                selectionCtx.fillRect(50, 180, 500, 100);
+                selectionCtx.fillStyle = '#fff';
+                selectionCtx.font = 'bold 14px Arial';
+                selectionCtx.fillText('Layer 2: Visual Appeal & Brand Match', 60, 205);
+                selectionCtx.font = '12px Arial';
+                const aestheticReqs = [
+                    '• Does it match your brand personality?',
+                    '• Color scheme alignment with brand?',
+                    '• Typography feels right for your audience?',
+                    '• Layout supports your content strategy?'
+                ];
+                for(let i = 0; i < aestheticReqs.length; i++) {
+                    selectionCtx.fillText(aestheticReqs[i], 70, 225 + (i * 15));
+                }
+                
+                // Layer 3: Technical
+                selectionCtx.fillStyle = '#ff9800';
+                selectionCtx.fillRect(50, 300, 500, 100);
+                selectionCtx.fillStyle = '#fff';
+                selectionCtx.font = 'bold 14px Arial';
+                selectionCtx.fillText('Layer 3: Technical Considerations', 60, 325);
+                selectionCtx.font = '12px Arial';
+                const techReqs = [
+                    '• Regular updates and support?',
+                    '• Page load speed performance?',
+                    '• Plugin compatibility?',
+                    '• Customization flexibility?'
+                ];
+                for(let i = 0; i < techReqs.length; i++) {
+                    selectionCtx.fillText(techReqs[i], 70, 345 + (i * 15));
+                }
+            </script>
+
+            <h3>Theme Testing - The Try-Before-You-Buy Approach</h3>
+            <p>Before committing to a theme, it's like test-driving a car. Here's how to properly evaluate themes:</p>
+
+            <div class="mermaid">
+                journey
+                    title Theme Testing Journey
+                    section Discovery
+                      Browse Theme Directory: 5: You
+                      Read Reviews &amp; Ratings: 4: You
+                      Check Demo Sites: 5: You
+                    section Testing
+                      Install on Staging Site: 3: You
+                      Add Your Content: 4: You
+                      Test on Mobile: 5: You
+                      Check Page Speed: 3: You
+                    section Decision
+                      Compare Options: 4: You
+                      Consider Long-term Needs: 3: You
+                      Make Final Choice: 5: You
+            </div>
+        </section>
+
+        <section>
+            <h2>Installing and Activating Themes</h2>
+            
+            <h3>Method One - The WordPress Dashboard Way</h3>
+            <p>This is like shopping online with instant delivery. WordPress makes it incredibly easy to browse, install, and activate themes directly from your admin dashboard.</p>
+
+            <pre><code>Dashboard Theme Installation Steps:
+
+1. Login to WordPress Admin
+   → Navigate to Appearance &gt; Themes
+
+2. Browse Available Themes
+   → Click "Add New" button
+   → Use search or filter options
+   → Preview themes with "Live Preview"
+
+3. Install Your Choice
+   → Click "Install" button
+   → Wait for download to complete
+   → Click "Activate" to make it live
+
+4. Initial Setup
+   → Visit Appearance &gt; Customize
+   → Configure theme options
+   → Upload your logo and customize colors</code></pre>
+
+            <h3>Method Two - Upload Custom Themes</h3>
+            <p>For premium themes or custom designs, you'll upload a zip file - like receiving a package and unpacking it yourself:</p>
+
+            <pre><code>Custom Theme Upload Process:
+
+1. Download Theme File
+   → Ensure you have the .zip file
+   → Don't unzip it yet!
+
+2. Upload via Dashboard
+   → Go to Appearance &gt; Themes &gt; Add New
+   → Click "Upload Theme" button
+   → Choose your .zip file
+   → Click "Install Now"
+
+3. Activate and Configure
+   → Click "Activate" once installed
+   → Check for theme documentation
+   → Import demo content if available</code></pre>
+        </section>
+
+        <section>
+            <h2>Theme Customization - Making It Yours</h2>
+            
+            <h3>The WordPress Customizer - Your Design Control Panel</h3>
+            <p>The WordPress Customizer is like having a live makeover studio where you can see changes in real-time before committing. It's your primary tool for personalizing your theme without touching code.</p>
+
+            <canvas id="customizerCanvas" width="650" height="500" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const customCanvas = document.getElementById('customizerCanvas');
+                const customCtx = customCanvas.getContext('2d');
+                
+                // WordPress Customizer interface mockup
+                customCtx.fillStyle = '#23282d';
+                customCtx.fillRect(0, 0, 250, 500);
+                
+                customCtx.fillStyle = '#0073aa';
+                customCtx.fillRect(0, 0, 250, 40);
+                customCtx.fillStyle = '#fff';
+                customCtx.font = 'bold 14px Arial';
+                customCtx.fillText('WordPress Customizer', 10, 25);
+                
+                // Customizer sections
+                const sections = [
+                    'Site Identity',
+                    'Colors',
+                    'Typography', 
+                    'Header Options',
+                    'Layout Settings',
+                    'Footer Options',
+                    'Additional CSS',
+                    'Widgets',
+                    'Menus'
+                ];
+                
+                customCtx.fillStyle = '#fff';
+                customCtx.font = '12px Arial';
+                for(let i = 0; i < sections.length; i++) {
+                    const y = 60 + (i * 35);
+                    customCtx.fillRect(10, y, 230, 30);
+                    customCtx.fillStyle = '#333';
+                    customCtx.fillText(sections[i], 20, y + 20);
+                    customCtx.fillStyle = '#fff';
+                    
+                    // Add arrow
+                    customCtx.fillStyle = '#666';
+                    customCtx.fillText('>', 220, y + 20);
+                    customCtx.fillStyle = '#fff';
+                }
+                
+                // Preview area
+                customCtx.fillStyle = '#f1f1f1';
+                customCtx.fillRect(250, 0, 400, 500);
+                customCtx.strokeStyle = '#ddd';
+                customCtx.strokeRect(250, 0, 400, 500);
+                
+                customCtx.fillStyle = '#333';
+                customCtx.font = 'bold 16px Arial';
+                customCtx.fillText('Live Preview Area', 350, 30);
+                
+                customCtx.font = '12px Arial';
+                customCtx.fillText('Changes appear here instantly', 320, 60);
+                
+                // Mock website preview
+                customCtx.fillStyle = '#0073aa';
+                customCtx.fillRect(270, 100, 360, 60);
+                customCtx.fillStyle = '#fff';
+                customCtx.font = '14px Arial';
+                customCtx.fillText('Your Website Header', 280, 135);
+                
+                customCtx.fillStyle = '#fff';
+                customCtx.fillRect(270, 180, 360, 200);
+                customCtx.strokeStyle = '#ddd';
+                customCtx.strokeRect(270, 180, 360, 200);
+                
+                customCtx.fillStyle = '#333';
+                customCtx.font = '12px Arial';
+                customCtx.fillText('Content area updates as you', 280, 200);
+                customCtx.fillText('modify colors, fonts, and layouts', 280, 220);
+            </script>
+
+            <h3>Essential Customization Areas</h3>
+            <div class="mermaid">
+                mindmap
+                  root((Theme Customization))
+                    Site Identity
+                      Logo Upload
+                      Site Title
+                      Tagline
+                      Site Icon
+                    Colors
+                      Primary Color
+                      Secondary Color
+                      Background
+                      Text Color
+                    Typography
+                      Font Family
+                      Font Sizes
+                      Line Heights
+                      Letter Spacing
+                    Layout
+                      Sidebar Position
+                      Content Width
+                      Grid Options
+                      Spacing
+                    Header &amp; Footer
+                      Navigation Menu
+                      Social Links
+                      Copyright Text
+                      Contact Info
+            </div>
+        </section>
+
+        <section>
+            <h2>Child Themes - Your Safety Net for Customization</h2>
+            
+            <h3>Why Child Themes Are Like Insurance Policies</h3>
+            <p>Imagine you rent an apartment and want to paint the walls. The landlord says you can, but when you move out, you'll lose all your improvements. Child themes are like buying your own apartment - you can customize freely while preserving your changes when the main theme updates.</p>
+
+            <h3>Creating Your First Child Theme</h3>
+            <p>Don't worry - creating a child theme is simpler than it sounds! It's just two small files that tell WordPress: "Use the parent theme, but apply my customizations on top."</p>
+
+            <pre><code>Child Theme File Structure:
+
+/wp-content/themes/your-child-theme/
+├── style.css
+└── functions.php
+
+style.css content:
+/*
+Theme Name: Your Theme Child
+Description: Child theme of Your Theme
+Template: parent-theme-folder-name
+Version: 1.0
+*/
+
+@import url("../parent-theme/style.css");
+
+/* Your custom CSS goes below this line */
+.custom-header {
+    background-color: #your-color;
+}
+
+functions.php content:
+&lt;?php
+// Enqueue parent theme styles
+function child_theme_styles() {
+    wp_enqueue_style('parent-theme', 
+        get_template_directory_uri() . '/style.css');
+    wp_enqueue_style('child-theme',
+        get_stylesheet_directory_uri() . '/style.css',
+        array('parent-theme')
+    );
+}
+add_action('wp_enqueue_scripts', 'child_theme_styles');
+?&gt;</code></pre>
+
+            <canvas id="childThemeCanvas" width="600" height="300" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const childCanvas = document.getElementById('childThemeCanvas');
+                const childCtx = childCanvas.getContext('2d');
+                
+                // Child theme concept visualization
+                childCtx.font = 'bold 16px Arial';
+                childCtx.fillStyle = '#e91e63';
+                childCtx.fillText('Child Theme Protection', 50, 30);
+                
+                // Parent theme
+                childCtx.fillStyle = '#2196f3';
+                childCtx.fillRect(50, 60, 200, 100);
+                childCtx.fillStyle = '#fff';
+                childCtx.font = 'bold 14px Arial';
+                childCtx.fillText('Parent Theme', 60, 85);
+                childCtx.font = '12px Arial';
+                childCtx.fillText('• Core functionality', 60, 105);
+                childCtx.fillText('• Gets updates', 60, 120);
+                childCtx.fillText('• Your changes lost', 60, 135);
+                childCtx.fillText('  when updated', 60, 150);
+                
+                // Arrow
+                childCtx.fillStyle = '#333';
+                childCtx.font = '20px Arial';
+                childCtx.fillText('+', 270, 120);
+                
+                // Child theme
+                childCtx.fillStyle = '#4caf50';
+                childCtx.fillRect(300, 60, 200, 100);
+                childCtx.fillStyle = '#fff';
+                childCtx.font = 'bold 14px Arial';
+                childCtx.fillText('Child Theme', 310, 85);
+                childCtx.font = '12px Arial';
+                childCtx.fillText('• Your customizations', 310, 105);
+                childCtx.fillText('• Safe from updates', 310, 120);
+                childCtx.fillText('• Inherits parent features', 310, 135);
+                childCtx.fillText('• Easy to maintain', 310, 150);
+                
+                // Result
+                childCtx.fillStyle = '#ff9800';
+                childCtx.fillRect(175, 200, 200, 60);
+                childCtx.fillStyle = '#fff';
+                childCtx.font = 'bold 14px Arial';
+                childCtx.fillText('Perfect Combination!', 180, 225);
+                childCtx.font = '12px Arial';
+                childCtx.fillText('Updates + Customizations', 180, 245);
+            </script>
+        </section>
+
+        <section>
+            <h2>Popular Theme Frameworks - The Foundation Builders</h2>
+            
+            <h3>Genesis Framework - The Stable Foundation</h3>
+            <p>Genesis is like having a master architect design the structural foundation of your house. It provides rock-solid security, SEO optimization, and performance, then lets you focus on the interior design.</p>
+
+            <h3>Divi - The Drag-and-Drop Designer</h3>
+            <p>Divi is like having LEGO blocks for website building. Its visual builder lets you drag, drop, and customize every element without touching code. Perfect for visual learners who want complete design control.</p>
+
+            <h3>Astra - The Speed Demon</h3>
+            <p>Astra is like a sports car engine for your website - lightweight, fast, and efficient. It loads quickly and provides extensive customization options without bloating your site.</p>
+
+            <div class="mermaid">
+                graph LR
+                    A[Theme Frameworks] --> B[Genesis]
+                    A --> C[Divi]
+                    A --> D[Astra]
+                    A --> E[OceanWP]
+                    
+                    B --> B1[SEO Optimized]
+                    B --> B2[Security Focused]
+                    B --> B3[Fast Loading]
+                    
+                    C --> C1[Visual Builder]
+                    C --> C2[Drag &amp; Drop]
+                    C --> C3[Pre-made Layouts]
+                    
+                    D --> D1[Lightweight]
+                    D --> D2[Fast Performance]
+                    D --> D3[Highly Customizable]
+                    
+                    E --> E1[Free &amp; Premium]
+                    E --> E2[WooCommerce Ready]
+                    E --> E3[Beginner Friendly]
+                    
+                    style B fill:#0073aa,color:#fff
+                    style C fill:#e91e63,color:#fff
+                    style D fill:#ff9800,color:#fff
+                    style E fill:#4caf50,color:#fff
+            </div>
+        </section>
+
+        <section>
+            <h2>Troubleshooting Common Theme Issues</h2>
+            
+            <h3>When Themes Misbehave - The Debugging Detective</h3>
+            <p>Sometimes themes act like temperamental artists - they don't display correctly, clash with plugins, or break after updates. Here's your troubleshooting toolkit:</p>
+
+            <canvas id="troubleshootingCanvas" width="650" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const troubleCanvas = document.getElementById('troubleshootingCanvas');
+                const troubleCtx = troubleshootingCanvas.getContext('2d');
+                
+                troubleCtx.font = 'bold 16px Arial';
+                troubleCtx.fillStyle = '#d32f2f';
+                troubleCtx.fillText('Common Theme Problems & Solutions', 50, 30);
+                
+                const problems = [
+                    {
+                        issue: 'Site looks broken after theme switch',
+                        solution: 'Check widget areas and menu assignments'
+                    },
+                    {
+                        issue: 'Slow loading speeds',
+                        solution: 'Optimize images and check plugin conflicts'
+                    },
+                    {
+                        issue: 'Mobile responsiveness issues', 
+                        solution: 'Test different devices, update theme'
+                    },
+                    {
+                        issue: 'Customizations disappeared',
+                        solution: 'Use child themes, backup customizer settings'
+                    },
+                    {
+                        issue: 'Plugin compatibility problems',
+                        solution: 'Deactivate plugins one by one to identify conflict'
+                    }
+                ];
+                
+                for(let i = 0; i < problems.length; i++) {
+                    const y = 70 + (i * 60);
+                    
+                    // Problem box
+                    troubleCtx.fillStyle = '#ffebee';
+                    troubleCtx.fillRect(50, y, 250, 25);
+                    troubleCtx.strokeStyle = '#f44336';
+                    troubleCtx.strokeRect(50, y, 250, 25);
+                    
+                    troubleCtx.fillStyle = '#d32f2f';
+                    troubleCtx.font = '12px Arial';
+                    troubleCtx.fillText('❌ ' + problems[i].issue, 55, y + 17);
+                    
+                    // Solution box
+                    troubleCtx.fillStyle = '#e8f5e8';
+                    troubleCtx.fillRect(320, y, 280, 25);
+                    troubleCtx.strokeStyle = '#4caf50';
+                    troubleCtx.strokeRect(320, y, 280, 25);
+                    
+                    troubleCtx.fillStyle = '#2e7d32';
+                    troubleCtx.fillText('✅ ' + problems[i].solution, 325, y + 17);
+                }
+                
+                // Add debugging steps
+                troubleCtx.fillStyle = '#1976d2';
+                troubleCtx.font = 'bold 14px Arial';
+                troubleCtx.fillText('Universal Debugging Steps:', 50, 360);
+                
+                troubleCtx.font = '12px Arial';
+                troubleCtx.fillStyle = '#333';
+                troubleCtx.fillText('1. Switch to default theme temporarily  2. Deactivate all plugins  3. Clear cache', 50, 380);
+            </script>
+
+            <h3>The Nuclear Option - Starting Fresh</h3>
+            <p>Sometimes the best solution is like renovating a house - start with a clean slate:</p>
+
+            <pre><code>Emergency Theme Reset Process:
+
+1. Backup Everything First!
+   → Export your content (Tools &gt; Export)
+   → Download your media library
+   → Note your current settings
+
+2. Switch to Default Theme
+   → Activate Twenty Twenty-Four or current default
+   → Check if issues persist
+
+3. Deactivate All Plugins
+   → Go to Plugins &gt; Installed Plugins
+   → Select All and choose "Deactivate"
+   → Test your site functionality
+
+4. Reactivate One by One
+   → Start with essential plugins
+   → Test after each activation
+   → Identify the problematic plugin/theme combination</code></pre>
+        </section>
+
+        <section>
+            <h2>Theme Performance Optimization</h2>
+            
+            <h3>Making Your Theme Lightning Fast</h3>
+            <p>A beautiful theme that loads slowly is like a gorgeous sports car stuck in traffic - impressive to look at, but frustrating to use. Here's how to optimize your theme for speed:</p>
+
+            <div class="mermaid">
+                graph TD
+                    A[Theme Performance] --> B[Image Optimization]
+                    A --> C[Code Minimization]
+                    A --> D[Caching Strategy]
+                    A --> E[Database Optimization]
+                    
+                    B --> B1[Compress Images]
+                    B --> B2[Use WebP Format]
+                    B --> B3[Lazy Loading]
+                    B --> B4[Proper Sizing]
+                    
+                    C --> C1[Minify CSS/JS]
+                    C --> C2[Remove Unused Code]
+                    C --> C3[Combine Files]
+                    
+                    D --> D1[Browser Caching]
+                    D --> D2[CDN Implementation]
+                    D --> D3[Page Caching]
+                    
+                    E --> E1[Clean Database]
+                    E --> E2[Optimize Queries]
+                    E --> E3[Remove Spam]
+                    
+                    style A fill:#ff9800,color:#fff
+                    style B fill:#4caf50,color:#fff
+                    style C fill:#2196f3,color:#fff
+                    style D fill:#e91e63,color:#fff
+                    style E fill:#9c27b0,color:#fff
+            </div>
+
+            <h3>Performance Testing Tools</h3>
+            <p>These tools are like having a personal trainer for your website - they identify weak spots and suggest improvements:</p>
+
+            <ul>
+                <li><strong>Google PageSpeed Insights</strong> - The gold standard for speed analysis</li>
+                <li><strong>GTmetrix</strong> - Detailed performance reports with actionable suggestions</li>
+                <li><strong>Pingdom</strong> - Real-world speed testing from multiple locations</li>
+                <li><strong>WebPageTest</strong> - Advanced testing with waterfall charts</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Future-Proofing Your Theme Choice</h2>
+            
+            <h3>Choosing Themes That Age Well</h3>
+            <p>Selecting a theme is like choosing a business partner - you want someone reliable, adaptable, and committed for the long haul. Here are the qualities that indicate a theme will serve you well over time:</p>
+
+            <canvas id="futureProofCanvas" width="600" height="350" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const futureCanvas = document.getElementById('futureProofCanvas');
+                const futureCtx = futureCanvas.getContext('2d');
+                
+                futureCtx.font = 'bold 16px Arial';
+                futureCtx.fillStyle = '#1976d2';
+                futureCtx.fillText('Future-Proof Theme Checklist', 50, 30);
+                
+                const criteria = [
+                    { item: '✅ Regular Updates (within 3 months)', score: 10 },
+                    { item: '✅ Active Support Forum', score: 9 },
+                    { item: '✅ Good User Ratings (4+ stars)', score: 9 },
+                    { item: '✅ Mobile-First Design', score: 10 },
+                    { item: '✅ SEO Optimized Code', score: 8 },
+                    { item: '✅ Fast Loading Speed', score: 9 },
+                    { item: '✅ Plugin Compatibility', score: 8 },
+                    { item: '✅ Clean, Valid Code', score: 7 }
+                ];
+                
+                let totalScore = 0;
+                for(let i = 0; i < criteria.length; i++) {
+                    const y = 60 + (i * 30);
+                    
+                    // Criteria text
+                    futureCtx.fillStyle = '#333';
+                    futureCtx.font = '12px Arial';
+                    futureCtx.fillText(criteria[i].item, 60, y + 15);
+                    
+                    // Score bar
+                    const barWidth = criteria[i].score * 15;
+                    futureCtx.fillStyle = criteria[i].score >= 9 ? '#4caf50' : criteria[i].score >= 7 ? '#ff9800' : '#f44336';
+                    futureCtx.fillRect(380, y + 5, barWidth, 15);
+                    
+                    // Score number
+                    futureCtx.fillStyle = '#333';
+                    futureCtx.fillText(criteria[i].score + '/10', 550, y + 15);
+                    
+                    totalScore += criteria[i].score;
+                }
+                
+                // Total score
+                futureCtx.fillStyle = '#1976d2';
+                futureCtx.font = 'bold 14px Arial';
+                futureCtx.fillText(`Total Score: ${totalScore}/80 (${Math.round((totalScore/80)*100)}%)`, 60, 320);
+            </script>
+
+            <h3>Staying Current With Theme Trends</h3>
+            <div class="mermaid">
+                timeline
+                    title Theme Evolution Timeline
+                    2020 : Block Editor Integration
+                         : Gutenberg compatibility becomes essential
+                    2021 : Full Site Editing
+                         : Themes support complete customization
+                    2022 : Performance Focus
+                         : Core Web Vitals optimization
+                    2023 : AI Integration
+                         : Smart content suggestions
+                    2024 : Accessibility Standards
+                         : WCAG compliance mandatory
+                    2025 : Sustainability Focus
+                         : Green hosting and efficient code
+            </div>
+        </section>
+
+        <section>
+            <h2>Your Theme Mastery Action Plan</h2>
+            
+            <h3>Homework for Theme Success</h3>
+            <p>Knowledge without action is like owning a Ferrari but never taking it out of the garage. Here's your step-by-step action plan:</p>
+
+            <div class="mermaid">
+                journey
+                    title Your Theme Mastery Journey
+                    section Week 1: Research
+                      Identify Site Type: 5: You
+                      Browse Theme Options: 4: You
+                      Read Reviews: 3: You
+                      Create Shortlist: 4: You
+                    section Week 2: Testing
+                      Install on Staging: 3: You
+                      Test Responsiveness: 4: You
+                      Check Performance: 3: You
+                      Evaluate Customization: 4: You
+                    section Week 3: Implementation
+                      Choose Final Theme: 5: You
+                      Create Child Theme: 3: You
+                      Basic Customization: 4: You
+                      Content Integration: 4: You
+                    section Week 4: Optimization
+                      Performance Tuning: 3: You
+                      Mobile Testing: 4: You
+                      Final Adjustments: 4: You
+                      Launch Preparation: 5: You
+            </div>
+
+            <h3>Essential Theme Checklist</h3>
+            <pre><code>Pre-Launch Theme Checklist:
+
+□ Theme is mobile-responsive
+□ Page load speed under 3 seconds
+□ All major browsers display correctly
+□ Contact forms work properly
+□ Navigation menus are intuitive
+□ Images display at correct sizes
+□ Social media links function
+□ SEO basics are configured
+□ Child theme is activated
+□ Backup is created
+
+Launch Day Checklist:
+
+□ Test all functionality one final time
+□ Check for broken links
+□ Verify contact information accuracy
+□ Confirm Google Analytics is tracking
+□ Test from different devices
+□ Share with trusted friends for feedback</code></pre>
+        </section>
+
+        <section>
+            <h2>What's Coming Next in Your WordPress Journey</h2>
+            
+            <p>Congratulations! You've just mastered one of the most important aspects of WordPress - themes. You now understand how to choose, install, customize, and optimize themes like a pro.</p>
+            
+            <p>In our next lesson, we'll dive into the world of plugins - the power tools that add functionality to your WordPress site. We'll explore essential plugins every site needs, how to choose quality plugins, and how to avoid the common pitfalls that can slow down or break your site.</p>
+            
+            <canvas id="progressCanvas" width="550" height="180" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const progressCanvas = document.getElementById('progressCanvas');
+                const progressCtx = progressCanvas.getContext('2d');
+                
+                progressCtx.font = '18px Arial';
+                progressCtx.fillStyle = '#e91e63';
+                progressCtx.textAlign = 'center';
+                progressCtx.fillText('WordPress Mastery Progress', 275, 30);
+                
+                const milestones = [
+                    { name: 'Basics', complete: true },
+                    { name: 'Setup', complete: true }, 
+                    { name: 'Themes', complete: true },
+                    { name: 'Plugins', complete: false },
+                    { name: 'Content', complete: false },
+                    { name: 'Launch', complete: false }
+                ];
+                
+                for(let i = 0; i < milestones.length; i++) {
+                    const x = 50 + (i * 85);
+                    const y = 80;
+                    
+                    // Progress line
+                    if(i > 0) {
+                        progressCtx.strokeStyle = milestones[i-1].complete && milestones[i].complete ? '#4caf50' : '#ddd';
+                        progressCtx.lineWidth = 4;
+                        progressCtx.beginPath();
+                        progressCtx.moveTo(x - 85 + 15, y);
+                        progressCtx.lineTo(x - 15, y);
+                        progressCtx.stroke();
+                    }
+                    
+                    // Milestone circle
+                    progressCtx.beginPath();
+                    progressCtx.arc(x, y, 15, 0, 2 * Math.PI);
+                    progressCtx.fillStyle = milestones[i].complete ? '#4caf50' : '#ddd';
+                    progressCtx.fill();
+                    
+                    // Checkmark or number
+                    progressCtx.fillStyle = '#fff';
+                    progressCtx.font = '12px Arial';
+                    progressCtx.textAlign = 'center';
+                    if(milestones[i].complete) {
+                        progressCtx.fillText('✓', x, y + 4);
+                    } else {
+                        progressCtx.fillText(i + 1, x, y + 4);
+                    }
+                    
+                    // Milestone name
+                    progressCtx.fillStyle = '#333';
+                    progressCtx.font = '11px Arial';
+                    progressCtx.fillText(milestones[i].name, x, y + 35);
+                }
+                
+                progressCtx.fillStyle = '#e91e63';
+                progressCtx.font = '14px Arial';
+                progressCtx.textAlign = 'center';
+                progressCtx.fillText('Theme Mastery Complete! 🎉', 275, 140);
+            </script>
+            
+            <p><strong>Remember:</strong> The best theme is not the prettiest one - it's the one that serves your users best and helps you achieve your goals. Focus on functionality first, aesthetics second, and always prioritize user experience over flashy features.</p>
+            
+            <p>You're well on your way to WordPress expertise. Keep experimenting, keep learning, and most importantly, keep building!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Next adventure: "WordPress Plugins - Your Website's Power Tools" where we'll explore the functionality extenders that make WordPress infinitely customizable!</p>
+    </footer>
+</body>
+</html>

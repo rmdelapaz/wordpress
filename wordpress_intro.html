@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is WordPress? - Your Digital Publishing Journey Begins</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>What is WordPress? Your Digital Publishing Journey Begins</h1>
+        <p>Welcome to the world's most popular content management system!</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Think of WordPress as Your Digital Swiss Army Knife</h2>
+            <p>Imagine you're moving into a new house. You could build every piece of furniture from scratch, wire the electricity, install plumbing, and paint every wall. Or, you could move into a house that already has the basic structure, utilities, and even some furniture - you just need to decorate and make it your own.</p>
+            
+            <p>That's exactly what WordPress is for websites! It's like a pre-built house for the internet where you can focus on creating content and customizing the look, rather than writing complex code from scratch.</p>
+        </section>
+
+        <section>
+            <h2>The WordPress Ecosystem - A Tale of Two Worlds</h2>
+            
+            <div class="mermaid">
+                graph TB
+                    A[WordPress Universe] --> B[WordPress.com]
+                    A --> C[WordPress.org]
+                    B --> D[Hosted for You]
+                    B --> E[Limited Customization]
+                    B --> F[Monthly Plans]
+                    C --> G[Self-Hosted]
+                    C --> H[Full Control]
+                    C --> I[Free Software]
+                    
+                    style A fill:#0073aa
+                    style B fill:#00a0d2
+                    style C fill:#21759b
+            </div>
+
+            <h3>WordPress.com - The Apartment Complex</h3>
+            <p>WordPress.com is like living in a managed apartment complex. The landlord (Automattic) takes care of maintenance, security, and utilities. You get a ready-to-use space, but you're limited in how much you can renovate. Want to install custom software or paint the walls a unique color? You'll need to check with management first (and often pay extra).</p>
+
+            <h3>WordPress.org - Your Own House</h3>
+            <p>WordPress.org gives you the blueprints to build your own house on your own land (web hosting). You have complete freedom to renovate, expand, and customize. However, you're responsible for maintenance, security, and utilities. This is where the real power lies!</p>
+        </section>
+
+        <section>
+            <h2>WordPress Powers the Internet</h2>
+            
+            <canvas id="marketShareCanvas" width="400" height="300" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const marketShareCanvas = document.getElementById('marketShareCanvas');
+                const ctx = marketShareCanvas.getContext('2d');
+                
+                // WordPress market share visualization
+                ctx.fillStyle = '#0073aa';
+                ctx.fillRect(50, 50, 300, 40);
+                ctx.fillStyle = '#ffffff';
+                ctx.font = '16px Arial';
+                ctx.fillText('WordPress: 43% of all websites', 60, 75);
+                
+                ctx.fillStyle = '#ff6b35';
+                ctx.fillRect(50, 100, 150, 40);
+                ctx.fillStyle = '#ffffff';
+                ctx.fillText('All Others: 57%', 60, 125);
+                
+                // Add some visual elements
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(50, 50, 300, 40);
+                ctx.strokeRect(50, 100, 300, 40);
+                
+                ctx.fillStyle = '#333';
+                ctx.font = '14px Arial';
+                ctx.fillText('That means 1 in 3 websites you visit runs on WordPress!', 50, 170);
+            </script>
+
+            <p>From personal blogs to major news sites like The New York Times, from small business websites to enterprise solutions for Sony and Disney - WordPress powers an incredible variety of websites. It's not just for bloggers anymore!</p>
+        </section>
+
+        <section>
+            <h2>Why WordPress Became the Internet's Favorite</h2>
+            
+            <h3>The Democracy of Web Publishing</h3>
+            <p>Before WordPress, creating a website was like trying to write a book by carving each letter into stone. You needed to know HTML, CSS, JavaScript, and server management. WordPress democratized web publishing, making it as easy as using a word processor.</p>
+
+            <div class="mermaid">
+                timeline
+                    title WordPress Evolution
+                    2003 : WordPress Born
+                         : Simple blogging platform
+                    2005 : Themes Introduction
+                         : Customizable designs
+                    2008 : Plugin Architecture
+                         : Endless functionality
+                    2015 : REST API
+                         : Modern web development
+                    2018 : Gutenberg Editor
+                         : Block-based editing
+                    2024 : Full Site Editing
+                         : Complete design control
+            </div>
+        </section>
+
+        <section>
+            <h2>Real-World WordPress Examples</h2>
+            
+            <h3>The Blog That Started It All</h3>
+            <p>WordPress began as a blogging platform, and blogs remain its bread and butter. Think of a blog as your digital journal that the whole world can read. Whether you're sharing recipes, travel adventures, or business insights, WordPress makes it simple.</p>
+
+            <h3>Business Websites - Your Digital Storefront</h3>
+            <p>A business website is like having a 24/7 storefront that never closes. Customers can learn about your services, read testimonials, and contact you even when you're sleeping. WordPress powers everything from local bakeries to Fortune 500 companies.</p>
+
+            <h3>E-commerce Stores - Your Online Marketplace</h3>
+            <p>With plugins like WooCommerce, WordPress transforms into a powerful online store. It's like having Amazon's functionality for your products, complete with shopping carts, payment processing, and inventory management.</p>
+
+            <h3>Membership Sites - Your Private Club</h3>
+            <p>WordPress can create exclusive areas for members only, like a digital VIP lounge where only paying customers or registered users can access premium content.</p>
+        </section>
+
+        <section>
+            <h2>The WordPress Building Blocks</h2>
+            
+            <div class="mermaid">
+                graph TD
+                    A[WordPress Core] --> B[Themes]
+                    A --> C[Plugins]
+                    A --> D[Content]
+                    B --> E[Design &amp; Layout]
+                    C --> F[Functionality]
+                    D --> G[Posts &amp; Pages]
+                    
+                    style A fill:#0073aa,color:#fff
+                    style B fill:#21759b,color:#fff
+                    style C fill:#00a0d2,color:#fff
+                    style D fill:#ff6b35,color:#fff
+            </div>
+
+            <h3>WordPress Core - The Foundation</h3>
+            <p>This is like the frame and basic systems of your house. It handles user management, content storage, security, and the admin interface. You rarely need to touch this directly.</p>
+
+            <h3>Themes - Your Interior Design</h3>
+            <p>Themes control how your website looks. Think of them as complete interior design packages - they change colors, fonts, layouts, and the overall visual style without affecting your content.</p>
+
+            <h3>Plugins - Your Power Tools</h3>
+            <p>Plugins add specific functionality to your site. Need a contact form? There's a plugin. Want to sell products? There's a plugin. Need better SEO? You guessed it - there's a plugin! There are over 60,000 plugins available.</p>
+
+            <h3>Content - Your Stories and Information</h3>
+            <p>This is your actual content - blog posts, pages, images, and media. It's the reason people visit your site in the first place.</p>
+        </section>
+
+        <section>
+            <h2>WordPress vs. The Competition</h2>
+            
+            <canvas id="comparisonCanvas" width="600" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const compCanvas = document.getElementById('comparisonCanvas');
+                const compCtx = compCanvas.getContext('2d');
+                
+                // Create a comparison chart
+                const platforms = ['WordPress', 'Wix', 'Squarespace', 'Shopify'];
+                const flexibility = [95, 60, 65, 75];
+                const easeOfUse = [70, 90, 85, 80];
+                const cost = [90, 70, 60, 65]; // Higher is better (more affordable)
+                
+                // Draw bars for flexibility
+                compCtx.fillStyle = '#0073aa';
+                compCtx.font = '12px Arial';
+                compCtx.fillText('Flexibility', 20, 30);
+                
+                for(let i = 0; i < platforms.length; i++) {
+                    const barHeight = flexibility[i] * 2;
+                    compCtx.fillRect(50 + i * 120, 200 - barHeight, 30, barHeight);
+                    compCtx.fillStyle = '#333';
+                    compCtx.fillText(platforms[i], 45 + i * 120, 220);
+                    compCtx.fillStyle = '#0073aa';
+                }
+                
+                // Draw bars for ease of use
+                compCtx.fillStyle = '#21759b';
+                compCtx.fillText('Ease of Use', 20, 50);
+                
+                for(let i = 0; i < platforms.length; i++) {
+                    const barHeight = easeOfUse[i] * 1.5;
+                    compCtx.fillRect(85 + i * 120, 200 - barHeight, 30, barHeight);
+                }
+                
+                // Legend
+                compCtx.fillStyle = '#0073aa';
+                compCtx.fillRect(450, 280, 20, 10);
+                compCtx.fillStyle = '#333';
+                compCtx.fillText('Flexibility', 480, 290);
+                
+                compCtx.fillStyle = '#21759b';
+                compCtx.fillRect(450, 300, 20, 10);
+                compCtx.fillStyle = '#333';
+                compCtx.fillText('Ease of Use', 480, 310);
+            </script>
+        </section>
+
+        <section>
+            <h2>Getting Started - Your WordPress Journey Map</h2>
+            
+            <div class="mermaid">
+                journey
+                    title Your WordPress Learning Path
+                    section Planning
+                      Define Goals: 5: You
+                      Choose Domain: 4: You
+                      Select Hosting: 3: You
+                    section Setup
+                      Install WordPress: 3: You
+                      Choose Theme: 4: You
+                      Essential Plugins: 3: You
+                    section Content Creation
+                      Write First Post: 5: You
+                      Create Pages: 4: You
+                      Add Media: 4: You
+                    section Optimization
+                      SEO Setup: 3: You
+                      Performance: 2: You
+                      Security: 2: You
+            </div>
+        </section>
+
+        <section>
+            <h2>Sample WordPress Code Structure</h2>
+            <p>Here's what a basic WordPress theme file looks like (don't worry about understanding this yet - we'll cover it in detail later!):</p>
+            
+            <pre><code>&lt;?php
+// This is a basic WordPress template file
+get_header(); // Loads the site header
+
+if (have_posts()) : 
+    while (have_posts()) : the_post(); ?&gt;
+        
+        &lt;article&gt;
+            &lt;h2&gt;&lt;?php the_title(); ?&gt;&lt;/h2&gt;
+            &lt;div class="content"&gt;
+                &lt;?php the_content(); ?&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        
+    &lt;?php endwhile;
+endif;
+
+get_footer(); // Loads the site footer
+?&gt;</code></pre>
+            
+            <p>This code tells WordPress: "Get the header, show all the posts with their titles and content, then add the footer." Pretty simple, right?</p>
+        </section>
+
+        <section>
+            <h2>What's Next in Your WordPress Adventure?</h2>
+            <p>You've just taken your first step into a larger world! In our upcoming lessons, we'll dive deeper into:</p>
+            
+            <ul>
+                <li>Setting up your first WordPress site</li>
+                <li>Choosing and customizing themes</li>
+                <li>Essential plugins for every site</li>
+                <li>Creating compelling content</li>
+                <li>Search engine optimization</li>
+                <li>Security and maintenance</li>
+                <li>Advanced customization techniques</li>
+            </ul>
+            
+            <p>Remember: every expert was once a beginner. The key is to start somewhere and keep learning. WordPress is forgiving - you can experiment, make mistakes, and learn as you go!</p>
+        </section>
+
+        <section>
+            <h2>Your WordPress Mindset</h2>
+            <p>As we embark on this journey together, remember that WordPress is more than just software - it's a community, a philosophy, and a tool for expression. The WordPress motto is "Code is Poetry," which means that even the technical aspects can be beautiful and creative.</p>
+            
+            <p>You're not just learning a platform; you're joining millions of people who believe that publishing should be accessible to everyone, regardless of technical background.</p>
+            
+            <canvas id="mindsetCanvas" width="500" height="200" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <script>
+                const mindsetCanvas = document.getElementById('mindsetCanvas');
+                const mindsetCtx = mindsetCanvas.getContext('2d');
+                
+                // Create an inspiring visual
+                mindsetCtx.font = '24px Arial';
+                mindsetCtx.fillStyle = '#0073aa';
+                mindsetCtx.textAlign = 'center';
+                mindsetCtx.fillText('Your Website Journey Starts Here!', 250, 50);
+                
+                mindsetCtx.font = '16px Arial';
+                mindsetCtx.fillStyle = '#666';
+                mindsetCtx.fillText('From idea to online presence', 250, 80);
+                
+                // Draw a simple progress bar
+                mindsetCtx.strokeStyle = '#ddd';
+                mindsetCtx.lineWidth = 10;
+                mindsetCtx.beginPath();
+                mindsetCtx.moveTo(50, 120);
+                mindsetCtx.lineTo(450, 120);
+                mindsetCtx.stroke();
+                
+                mindsetCtx.strokeStyle = '#0073aa';
+                mindsetCtx.lineWidth = 10;
+                mindsetCtx.beginPath();
+                mindsetCtx.moveTo(50, 120);
+                mindsetCtx.lineTo(150, 120);
+                mindsetCtx.stroke();
+                
+                mindsetCtx.fillStyle = '#333';
+                mindsetCtx.font = '12px Arial';
+                mindsetCtx.fillText('Lesson 1 Complete!', 250, 150);
+            </script>
+        </section>
+    </main>
+
+    <footer>
+        <p>Ready for the next lesson? We'll explore how to choose between WordPress.com and WordPress.org, and set up your development environment!</p>
+    </footer>
+</body>
+</html>
