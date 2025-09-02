@@ -573,66 +573,120 @@ add_action('send_headers', 'add_security_headers');
             <p>SEO for a new website is like opening a store in a new city - you need clear signage (titles), easy directions (sitemaps), word-of-mouth marketing (backlinks), and excellent customer service (user experience) to attract and retain visitors. The technical foundation you set at launch determines how well search engines can find, understand, and rank your content.</p>
 
             <canvas id="seoFoundationCanvas" width="650" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
-            <script>
-                const seoCanvas = document.getElementById('seoFoundationCanvas');
-                const seoCtx = seoFoundationCanvas.getContext('2d');
-                
-                seoCtx.font = 'bold 16px Arial';
-                seoCtx.fillStyle = '#388e3c';
-                seoCtx.fillText('SEO Foundation Pyramid', 50, 30);
-                
-                // SEO pyramid layers
-                const seoLayers = [
-                    {name: 'Content Quality & Relevance', width: 400, height: 60, color: '#4caf50'},
-                    {name: 'Technical SEO & Site Structure', width: 320, height: 50, color: '#66bb6a'},
-                    {name: 'On-Page Optimization', width: 240, height: 45, color: '#81c784'},
-                    {name: 'User Experience Signals', width: 180, height: 40, color: '#a5d6a7'},
-                    {name: 'Authority & Trust Signals', width: 120, height: 35, color: '#c8e6c9'}
-                ];
-                
-                let currentY2 = 350;
-                for(let i = 0; i < seoLayers.length; i++) {
-                    const layer = seoLayers[i];
-                    const x = 325 - (layer.width / 2);
-                    
-                    // Draw pyramid layer
-                    seoCtx.fillStyle = layer.color;
-                    seoCtx.fillRect(x, currentY2 - layer.height, layer.width, layer.height);
-                    
-                    // Layer text
-                    seoCtx.fillStyle = '#fff';
-                    seoCtx.font = 'bold 12px Arial';
-                    seoCtx.textAlign = 'center';
-                    seoCtx.fillText(layer.name, 325, currentY - layer.height/2 + 4);
-                    
-                    currentY -= layer.height;
-                }
-                
-                seoCtx.textAlign = 'left';
-                
-                // SEO checklist items for each layer
-                const seoDetails = [
-                    {layer: 'Content Quality', x: 50, items: ['High-value, original content', 'Keyword research and targeting', 'Comprehensive topic coverage', 'Regular content updates']},
-                    {layer: 'Technical SEO', x: 200, items: ['XML sitemaps', 'Robot.txt optimization', 'Site speed optimization', 'Mobile responsiveness']},
-                    {layer: 'On-Page SEO', x: 350, items: ['Title tag optimization', 'Meta descriptions', 'Header structure (H1-H6)', 'Internal linking']},
-                    {layer: 'User Experience', x: 500, items: ['Fast load times', 'Easy navigation', 'Low bounce rate', 'Mobile-friendly design']},
-                    {layer: 'Authority Signals', x: 325, items: ['Quality backlinks', 'Social media presence', 'Brand mentions', 'Domain authority']}
-                ];
-                
-                for(let i = 0; i < seoDetails.length; i++) {
-                    const detail = seoDetails[i];
-                    
-                    seoCtx.fillStyle = '#333';
-                    seoCtx.font = 'bold 11px Arial';
-                    seoCtx.fillText(detail.layer, detail.x - 20, 70);
-                    
-                    seoCtx.font = '10px Arial';
-                    seoCtx.fillStyle = '#666';
-                    for(let j = 0; j < detail.items.length; j++) {
-                        seoCtx.fillText('• ' + detail.items[j], detail.x - 15, 85 + (j * 12));
-                    }
-                }
-            </script>
+<script>
+  const seoCanvas = document.getElementById('seoFoundationCanvas');
+  const seoCtx = seoCanvas.getContext('2d');
+
+  // Title
+  seoCtx.font = 'bold 16px Arial';
+  seoCtx.fillStyle = '#388e3c';
+  seoCtx.fillText('SEO Foundation Pyramid', 50, 30);
+
+  // SEO pyramid layers
+  const seoLayers = [
+    { name: 'Content Quality & Relevance',    width: 400, height: 60, color: '#4caf50' },
+    { name: 'Technical SEO & Site Structure', width: 320, height: 50, color: '#66bb6a' },
+    { name: 'On-Page Optimization',           width: 240, height: 45, color: '#81c784' },
+    { name: 'User Experience Signals',        width: 180, height: 40, color: '#a5d6a7' },
+    { name: 'Authority & Trust Signals',      width: 120, height: 35, color: '#c8e6c9' }
+  ];
+
+  // Draw layers (from bottom up)
+  let currentY = 350;
+  seoCtx.textAlign = 'center';
+  seoCtx.textBaseline = 'middle';
+
+  for (let i = 0; i < seoLayers.length; i++) {
+    const layer = seoLayers[i];
+    const x = 325 - (layer.width / 2);
+
+    // Layer block
+    seoCtx.fillStyle = layer.color;
+    seoCtx.fillRect(x, currentY - layer.height, layer.width, layer.height);
+
+    // Layer label (switch to dark text on the lightest layers)
+    const useDarkText = i >= 3; // last two are light
+    seoCtx.fillStyle = useDarkText ? '#2b2b2b' : '#fff';
+    seoCtx.font = 'bold 12px Arial';
+    seoCtx.fillText(layer.name, 325, currentY - (layer.height / 2));
+
+    currentY -= layer.height;
+  }
+
+  // Reset text alignment for lists
+  seoCtx.textAlign = 'left';
+  seoCtx.textBaseline = 'alphabetic';
+
+  // SEO checklist items for each layer
+  const seoDetails = [
+    {
+      layer: 'Content Quality',
+      x: 50,
+      items: [
+        'High-value, original content',
+        'Keyword research and targeting',
+        'Comprehensive topic coverage',
+        'Regular content updates'
+      ]
+    },
+    {
+      layer: 'Technical SEO',
+      x: 200,
+      items: [
+        'XML sitemaps',
+        'robots.txt optimization',
+        'Site speed optimization',
+        'Mobile responsiveness'
+      ]
+    },
+    {
+      layer: 'On-Page SEO',
+      x: 350,
+      items: [
+        'Title tag optimization',
+        'Meta descriptions',
+        'Header structure (H1–H6)',
+        'Internal linking'
+      ]
+    },
+    {
+      layer: 'User Experience',
+      x: 500,
+      items: [
+        'Fast load times',
+        'Easy navigation',
+        'Low bounce rate',
+        'Mobile-friendly design'
+      ]
+    },
+    {
+      layer: 'Authority Signals',
+      x: 325,
+      items: [
+        'Quality backlinks',
+        'Social media presence',
+        'Brand mentions',
+        'Domain authority'
+      ]
+    }
+  ];
+
+  // Draw details
+  for (let i = 0; i < seoDetails.length; i++) {
+    const detail = seoDetails[i];
+
+    seoCtx.fillStyle = '#333';
+    seoCtx.font = 'bold 11px Arial';
+    seoCtx.fillText(detail.layer, detail.x - 20, 70);
+
+    seoCtx.font = '10px Arial';
+    seoCtx.fillStyle = '#666';
+    for (let j = 0; j < detail.items.length; j++) {
+      seoCtx.fillText('• ' + detail.items[j], detail.x - 15, 85 + (j * 12));
+    }
+  }
+</script>
+
 
             <h3>Launch Day SEO Setup</h3>
             <pre><code>Essential SEO Configuration for Launch:
