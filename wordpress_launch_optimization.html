@@ -592,7 +592,7 @@ add_action('send_headers', 'add_security_headers');
   ];
 
   // Draw layers (from bottom up)
-  let currentY = 350;
+  let currentY2 = 350;
   seoCtx.textAlign = 'center';
   seoCtx.textBaseline = 'middle';
 
@@ -602,15 +602,15 @@ add_action('send_headers', 'add_security_headers');
 
     // Layer block
     seoCtx.fillStyle = layer.color;
-    seoCtx.fillRect(x, currentY - layer.height, layer.width, layer.height);
+    seoCtx.fillRect(x, currentY2 - layer.height, layer.width, layer.height);
 
     // Layer label (switch to dark text on the lightest layers)
     const useDarkText = i >= 3; // last two are light
     seoCtx.fillStyle = useDarkText ? '#2b2b2b' : '#fff';
     seoCtx.font = 'bold 12px Arial';
-    seoCtx.fillText(layer.name, 325, currentY - (layer.height / 2));
+    seoCtx.fillText(layer.name, 325, currentY2 - (layer.height / 2));
 
-    currentY -= layer.height;
+    currentY2 -= layer.height;
   }
 
   // Reset text alignment for lists
