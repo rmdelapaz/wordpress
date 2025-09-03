@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choosing Your WordPress Path - The Great Decision</title>
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
       mermaid.initialize({ startOnLoad: true });
     </script>
 </head>
 <body>
-    <header>
+    <div class="content-wrapper">
+        <!-- Navigation -->
+        <nav class="tutorial-navigation">
+            <a href="wordpress_intro.html" class="nav-previous">Previous: WordPress Intro</a>
+            <a href="index.html" class="nav-home">Tutorial Home</a>
+            <a href="wordpress_themes_guide.html" class="nav-next">Next: Themes Guide</a>
+        </nav>
+
+        <header>
         <h1>Choosing Your WordPress Path - The Great Decision</h1>
         <p>WordPress.com vs WordPress.org - Your digital destiny awaits!</p>
     </header>
@@ -51,9 +59,14 @@
             <h3>The Food Court Approach</h3>
             <p>WordPress.com is like setting up shop in a premium food court. The mall management (Automattic) handles security, maintenance, cleaning, and utilities. You focus on serving your customers while they handle the backend operations.</p>
 
-            <canvas id="wordpressComCanvas" width="600" height="350" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas">
+                <canvas id="wordpressComCanvas"></canvas>
+            </div>
             <script>
                 const wpComCanvas = document.getElementById('wordpressComCanvas');
+                const wpComContainer = wpComCanvas.parentElement;
+                wpComCanvas.width = wpComContainer.offsetWidth;
+                wpComCanvas.height = wpComContainer.offsetHeight;
                 const wpComCtx = wpComCanvas.getContext('2d');
                 
                 // WordPress.com visualization
@@ -127,9 +140,14 @@
             <h3>The Own-Your-Restaurant Approach</h3>
             <p>WordPress.org is like buying your own restaurant building. You have complete creative control over the menu, decor, layout, and operations. However, you're responsible for maintenance, security, and ensuring everything runs smoothly.</p>
 
-            <canvas id="wordpressOrgCanvas" width="600" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas">
+                <canvas id="wordpressOrgCanvas"></canvas>
+            </div>
             <script>
                 const wpOrgCanvas = document.getElementById('wordpressOrgCanvas');
+                const wpOrgContainer = wpOrgCanvas.parentElement;
+                wpOrgCanvas.width = wpOrgContainer.offsetWidth;
+                wpOrgCanvas.height = wpOrgContainer.offsetHeight;
                 const wpOrgCtx = wpOrgCanvas.getContext('2d');
                 
                 // WordPress.org visualization
@@ -263,9 +281,14 @@
             <h3>The Hosting Neighborhood Guide</h3>
             <p>Choosing web hosting is like picking a neighborhood for your business. Different areas offer different advantages, costs, and atmospheres. Let's explore the hosting landscape:</p>
 
-            <canvas id="hostingComparisonCanvas" width="700" height="450" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas">
+                <canvas id="hostingComparisonCanvas"></canvas>
+            </div>
             <script>
                 const hostingCanvas = document.getElementById('hostingComparisonCanvas');
+                const hostingContainer = hostingCanvas.parentElement;
+                hostingCanvas.width = hostingContainer.offsetWidth;
+                hostingCanvas.height = hostingContainer.offsetHeight;
                 const hostingCtx = hostingCanvas.getContext('2d');
                 
                 // Create hosting comparison chart
@@ -370,9 +393,14 @@ Avoid These Patterns:
 ✗ ez4bkng.com (hard to remember/spell)
 ✗ easybaking2024.com (year becomes outdated)</code></pre>
 
-            <canvas id="domainTipsCanvas" width="600" height="300" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas" style="padding-bottom: 50%;">
+                <canvas id="domainTipsCanvas"></canvas>
+            </div>
             <script>
                 const domainCanvas = document.getElementById('domainTipsCanvas');
+                const domainContainer = domainCanvas.parentElement;
+                domainCanvas.width = domainContainer.offsetWidth;
+                domainCanvas.height = domainContainer.offsetHeight;
                 const domainCtx = domainCanvas.getContext('2d');
                 
                 // Domain name tips visualization
@@ -498,9 +526,14 @@ Avoid These Patterns:
             <h3>The WordPress Rookie Errors</h3>
             <p>Learn from others' mistakes! Here are the most common pitfalls new WordPress users encounter:</p>
 
-            <canvas id="mistakesCanvas" width="600" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas">
+                <canvas id="mistakesCanvas"></canvas>
+            </div>
             <script>
                 const mistakesCanvas = document.getElementById('mistakesCanvas');
+                const mistakesContainer = mistakesCanvas.parentElement;
+                mistakesCanvas.width = mistakesContainer.offsetWidth;
+                mistakesCanvas.height = mistakesContainer.offsetHeight;
                 const mistakesCtx = mistakesCanvas.getContext('2d');
                 
                 mistakesCtx.font = 'bold 16px Arial';
@@ -555,9 +588,14 @@ Avoid These Patterns:
                 <li>Think about what kind of website you want to build</li>
             </ul>
             
-            <canvas id="nextStepsCanvas" width="500" height="200" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas" style="padding-bottom: 40%;">
+                <canvas id="nextStepsCanvas"></canvas>
+            </div>
             <script>
                 const nextCanvas = document.getElementById('nextStepsCanvas');
+                const nextContainer = nextCanvas.parentElement;
+                nextCanvas.width = nextContainer.offsetWidth;
+                nextCanvas.height = nextContainer.offsetHeight;
                 const nextCtx = nextCanvas.getContext('2d');
                 
                 // Progress visualization
@@ -608,5 +646,13 @@ Avoid These Patterns:
     <footer>
         <p>Next up: "WordPress Themes - Dressing Your Digital Storefront" where we'll explore the visual foundation of your website!</p>
     </footer>
+
+    <!-- Bottom Navigation -->
+    <nav class="tutorial-navigation">
+        <a href="wordpress_intro.html" class="nav-previous">Previous: WordPress Intro</a>
+        <a href="index.html" class="nav-home">Tutorial Home</a>
+        <a href="wordpress_themes_guide.html" class="nav-next">Next: Themes Guide</a>
+    </nav>
+    </div>
 </body>
 </html>

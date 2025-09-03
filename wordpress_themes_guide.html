@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WordPress Themes - Dressing Your Digital Storefront</title>
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
       mermaid.initialize({ startOnLoad: true });
     </script>
 </head>
 <body>
-    <header>
+    <div class="content-wrapper">
+        <!-- Navigation -->
+        <nav class="tutorial-navigation">
+            <a href="wordpress_setup_choice.html" class="nav-previous">Previous: Setup & Hosting</a>
+            <a href="index.html" class="nav-home">Tutorial Home</a>
+            <a href="wordpress_plugins_mastery.html" class="nav-next">Next: Plugins Mastery</a>
+        </nav>
+
+        <header>
         <h1>WordPress Themes - Dressing Your Digital Storefront</h1>
         <p>Transform your website's appearance from bland to brand-amazing!</p>
     </header>
@@ -55,9 +63,14 @@
             <h3>Free Themes - The Department Store</h3>
             <p>The WordPress.org theme directory is like a massive department store with over 9,000 free themes. They're well-made, regularly updated, and perfect for getting started. However, like department store clothes, they're mass-produced and you might see others wearing the same "outfit."</p>
 
-            <canvas id="themeSourcesCanvas" width="700" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas">
+                <canvas id="themeSourcesCanvas"></canvas>
+            </div>
             <script>
                 const themeCanvas = document.getElementById('themeSourcesCanvas');
+                const themeContainer = themeCanvas.parentElement;
+                themeCanvas.width = themeContainer.offsetWidth;
+                themeCanvas.height = themeContainer.offsetHeight;
                 const themeCtx = themeCanvas.getContext('2d');
                 
                 // Theme sources comparison
@@ -200,9 +213,14 @@
             <h3>The Three-Layer Decision Process</h3>
             <p>Choosing a theme is like finding your personal style. You need to consider function, aesthetics, and long-term goals. Here's how to approach it systematically:</p>
 
-            <canvas id="themeSelectionCanvas" width="600" height="450" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas">
+                <canvas id="themeSelectionCanvas"></canvas>
+            </div>
             <script>
                 const selectionCanvas = document.getElementById('themeSelectionCanvas');
+                const selectionContainer = selectionCanvas.parentElement;
+                selectionCanvas.width = selectionContainer.offsetWidth;
+                selectionCanvas.height = selectionContainer.offsetHeight;
                 const selectionCtx = selectionCanvas.getContext('2d');
                 
                 // Theme selection process
@@ -337,9 +355,14 @@
             <h3>The WordPress Customizer - Your Design Control Panel</h3>
             <p>The WordPress Customizer is like having a live makeover studio where you can see changes in real-time before committing. It's your primary tool for personalizing your theme without touching code.</p>
 
-            <canvas id="customizerCanvas" width="650" height="500" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas">
+                <canvas id="customizerCanvas"></canvas>
+            </div>
             <script>
                 const customCanvas = document.getElementById('customizerCanvas');
+                const customContainer = customCanvas.parentElement;
+                customCanvas.width = customContainer.offsetWidth;
+                customCanvas.height = customContainer.offsetHeight;
                 const customCtx = customCanvas.getContext('2d');
                 
                 // WordPress Customizer interface mockup
@@ -487,9 +510,14 @@ function child_theme_styles() {
 add_action('wp_enqueue_scripts', 'child_theme_styles');
 ?&gt;</code></pre>
 
-            <canvas id="childThemeCanvas" width="600" height="300" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas" style="padding-bottom: 50%;">
+                <canvas id="childThemeCanvas"></canvas>
+            </div>
             <script>
                 const childCanvas = document.getElementById('childThemeCanvas');
+                const childContainer = childCanvas.parentElement;
+                childCanvas.width = childContainer.offsetWidth;
+                childCanvas.height = childContainer.offsetHeight;
                 const childCtx = childCanvas.getContext('2d');
                 
                 // Child theme concept visualization
@@ -585,9 +613,14 @@ add_action('wp_enqueue_scripts', 'child_theme_styles');
             <h3>When Themes Misbehave - The Debugging Detective</h3>
             <p>Sometimes themes act like temperamental artists - they don't display correctly, clash with plugins, or break after updates. Here's your troubleshooting toolkit:</p>
 
-            <canvas id="troubleshootingCanvas" width="650" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas">
+                <canvas id="troubleshootingCanvas"></canvas>
+            </div>
             <script>
                 const troubleCanvas = document.getElementById('troubleshootingCanvas');
+                const troubleContainer = troubleCanvas.parentElement;
+                troubleCanvas.width = troubleContainer.offsetWidth;
+                troubleCanvas.height = troubleContainer.offsetHeight;
                 const troubleCtx = troubleshootingCanvas.getContext('2d');
                 
                 troubleCtx.font = 'bold 16px Arial';
@@ -729,9 +762,14 @@ add_action('wp_enqueue_scripts', 'child_theme_styles');
             <h3>Choosing Themes That Age Well</h3>
             <p>Selecting a theme is like choosing a business partner - you want someone reliable, adaptable, and committed for the long haul. Here are the qualities that indicate a theme will serve you well over time:</p>
 
-            <canvas id="futureProofCanvas" width="600" height="350" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas">
+                <canvas id="futureProofCanvas"></canvas>
+            </div>
             <script>
                 const futureCanvas = document.getElementById('futureProofCanvas');
+                const futureContainer = futureCanvas.parentElement;
+                futureCanvas.width = futureContainer.offsetWidth;
+                futureCanvas.height = futureContainer.offsetHeight;
                 const futureCtx = futureCanvas.getContext('2d');
                 
                 futureCtx.font = 'bold 16px Arial';
@@ -857,9 +895,14 @@ Launch Day Checklist:
             
             <p>In our next lesson, we'll dive into the world of plugins - the power tools that add functionality to your WordPress site. We'll explore essential plugins every site needs, how to choose quality plugins, and how to avoid the common pitfalls that can slow down or break your site.</p>
             
-            <canvas id="progressCanvas" width="550" height="180" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas" style="padding-bottom: 35%;">
+                <canvas id="progressCanvas"></canvas>
+            </div>
             <script>
                 const progressCanvas = document.getElementById('progressCanvas');
+                const progressContainer = progressCanvas.parentElement;
+                progressCanvas.width = progressContainer.offsetWidth;
+                progressCanvas.height = progressContainer.offsetHeight;
                 const progressCtx = progressCanvas.getContext('2d');
                 
                 progressCtx.font = '18px Arial';
@@ -927,5 +970,13 @@ Launch Day Checklist:
     <footer>
         <p>Next adventure: "WordPress Plugins - Your Website's Power Tools" where we'll explore the functionality extenders that make WordPress infinitely customizable!</p>
     </footer>
+
+    <!-- Bottom Navigation -->
+    <nav class="tutorial-navigation">
+        <a href="wordpress_setup_choice.html" class="nav-previous">Previous: Setup & Hosting</a>
+        <a href="index.html" class="nav-home">Tutorial Home</a>
+        <a href="wordpress_plugins_mastery.html" class="nav-next">Next: Plugins Mastery</a>
+    </nav>
+    </div>
 </body>
 </html>

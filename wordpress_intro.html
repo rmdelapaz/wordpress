@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What is WordPress? - Your Digital Publishing Journey Begins</title>
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
       mermaid.initialize({ startOnLoad: true });
     </script>
 </head>
 <body>
-    <header>
+    <div class="content-wrapper">
+        <!-- Navigation -->
+        <nav class="tutorial-navigation">
+            <a href="index.html" class="nav-home">Tutorial Home</a>
+            <span style="color: white;">Lesson 1 of 7</span>
+            <a href="wordpress_setup_choice.html" class="nav-next">Next: Setup & Hosting</a>
+        </nav>
+
+        <header>
         <h1>What is WordPress? Your Digital Publishing Journey Begins</h1>
         <p>Welcome to the world's most popular content management system!</p>
     </header>
@@ -54,9 +62,15 @@
         <section>
             <h2>WordPress Powers the Internet</h2>
             
-            <canvas id="marketShareCanvas" width="400" height="300" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas">
+                <canvas id="marketShareCanvas"></canvas>
+            </div>
             <script>
                 const marketShareCanvas = document.getElementById('marketShareCanvas');
+                // Set canvas size based on container
+                const container = marketShareCanvas.parentElement;
+                marketShareCanvas.width = container.offsetWidth;
+                marketShareCanvas.height = container.offsetHeight;
                 const ctx = marketShareCanvas.getContext('2d');
                 
                 // WordPress market share visualization
@@ -159,9 +173,15 @@
         <section>
             <h2>WordPress vs. The Competition</h2>
             
-            <canvas id="comparisonCanvas" width="600" height="400" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas">
+                <canvas id="comparisonCanvas"></canvas>
+            </div>
             <script>
                 const compCanvas = document.getElementById('comparisonCanvas');
+                // Set canvas size based on container
+                const compContainer = compCanvas.parentElement;
+                compCanvas.width = compContainer.offsetWidth;
+                compCanvas.height = compContainer.offsetHeight;
                 const compCtx = compCanvas.getContext('2d');
                 
                 // Create a comparison chart
@@ -280,9 +300,15 @@ get_footer(); // Loads the site footer
             
             <p>You're not just learning a platform; you're joining millions of people who believe that publishing should be accessible to everyone, regardless of technical background.</p>
             
-            <canvas id="mindsetCanvas" width="500" height="200" style="border: 1px solid #ddd; margin: 20px 0;"></canvas>
+            <div class="responsive-canvas" style="padding-bottom: 40%;">
+                <canvas id="mindsetCanvas"></canvas>
+            </div>
             <script>
                 const mindsetCanvas = document.getElementById('mindsetCanvas');
+                // Set canvas size based on container
+                const mindsetContainer = mindsetCanvas.parentElement;
+                mindsetCanvas.width = mindsetContainer.offsetWidth;
+                mindsetCanvas.height = mindsetContainer.offsetHeight;
                 const mindsetCtx = mindsetCanvas.getContext('2d');
                 
                 // Create an inspiring visual
@@ -320,5 +346,13 @@ get_footer(); // Loads the site footer
     <footer>
         <p>Ready for the next lesson? We'll explore how to choose between WordPress.com and WordPress.org, and set up your development environment!</p>
     </footer>
+
+    <!-- Bottom Navigation -->
+    <nav class="tutorial-navigation">
+        <a href="index.html" class="nav-home">Tutorial Home</a>
+        <span style="color: white;">Lesson 1 of 7</span>
+        <a href="wordpress_setup_choice.html" class="nav-next">Next: Setup & Hosting</a>
+    </nav>
+    </div>
 </body>
 </html>
